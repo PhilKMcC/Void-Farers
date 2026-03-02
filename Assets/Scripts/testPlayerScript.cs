@@ -32,7 +32,7 @@ public class testPlayerScript : MonoBehaviour
         Vector2 move = MoveAction.ReadValue<Vector2>();
         //Debug.Log(move);
         myBody.linearVelocityX = (move.x * MoveSpeed);
-        if (JumpAction.ReadValue<float>() > 0)
+        if (JumpAction.WasPressedThisFrame())
         {
             myBody.linearVelocityY = JumpIntensity;
         }

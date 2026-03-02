@@ -1,5 +1,7 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Dialouguer : MonoBehaviour, I_Interactable
@@ -16,13 +18,17 @@ public class Dialouguer : MonoBehaviour, I_Interactable
 
     public string[] text; //the full text of the dialogue. currently doesn't support interruptions, or context, but that may alter in the future if we need it. indices separate a new phrase of dialogue.
     public string[] textMetadata; // meta data for the  dialougue. each corresponds to the text of the same index. must be same length as text. consists of "<L|R>,<index>". L for left active, R for right. index is index of that talker to update to.
-    
+
+    public static InputAction nextAction;
+
     public static GameObject Canvas; //the canvas for the dialogue. will probably need to add more stuff, but basically this is thestuff this modifies. 
     public static Image LeftDialoguer;
     public static Image RightDialoguer;
     public static GameObject textBG;
     public static TextMeshProUGUI LeftText;
     public static TextMeshProUGUI RightText;
+    public Color dialoguerInactiveColor = Color.darkGray;
+    public Color dialoguerActiveColor = Color.white;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,6 +40,8 @@ public class Dialouguer : MonoBehaviour, I_Interactable
         {
             initializeCanvas();
         }
+        nextAction = InputSystem.actions.FindAction("Dialogue/Next");
+
     }
 
     // Update is called once per frame
@@ -106,11 +114,61 @@ public class Dialouguer : MonoBehaviour, I_Interactable
         Canvas.SetActive(true);
         LeftDialoguer.sprite = LeftSpeaker[0];
         RightDialoguer.sprite = RightSpeaker[0];
-        
+
         //do some string tokenizing, or something
+
+        StartCoroutine(dialogue());
+
+    }
+
+    IEnumerator dialogue()
+    {
+        LeftDialoguer.sprite = LeftSpeaker[0];
+        RightDialoguer.sprite = RightSpeaker[0];
+        LeftDialoguer.color = Color.clear;
+        RightDialoguer.color = Color.clear;
+        float timePerWord = 0.1f;
+        for (int i = 0; i < text.Length; i++)
+        {
+            //wait a frame before accepting input
+            yield return timePerWord;
+
+
+            string[] meta = textMetadata[i].Split(",");
+            if (meta[0] == "L") //left active
+            {
+                LeftDialoguer.color = dialoguerActiveColor;
+                RightDialoguer.color = dialoguerInactiveColor;
+                LeftDialoguer.sprite = LeftSpeaker[int.Parse(meta[1])];
+            }
+            if (meta[0] == "R") //right active
+            {
+                RightDialoguer.color = dialoguerActiveColor;
+                LeftDialoguer.color = dialoguerInactiveColor;
+                RightDialoguer.sprite = RightSpeaker[int.Parse(meta[1])];
+            }
+
+            //wait for input
+
+            while (!nextAction.WasPressedThisFrame())
+            {
+                yield return timePerWord;
+            }
+            clearText();
+
+        }
+
         
 
+        Canvas.SetActive (false);
 
+    }
+
+    public void clearText()
+    {
+        Debug.Log("cleared text");
+        LeftText.text = string.Empty;
+        RightText.text = string.Empty;
     }
 
 }

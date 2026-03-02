@@ -36,10 +36,11 @@ public class Interactable : MonoBehaviour
     {
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (InteractAction.ReadValue<float>() >0 && distance < interactDistance)
+        if (InteractAction.WasPressedThisFrame() && distance < interactDistance)
         {
             Interact();
         }
+        //consider having an iteract icon above their head...
     }
 
 

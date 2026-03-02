@@ -485,7 +485,7 @@
                     "id": "0e7c5f56-7cfa-47a8-b594-4ed60097be03",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "initialStateCheck": false
                 }
             ],
