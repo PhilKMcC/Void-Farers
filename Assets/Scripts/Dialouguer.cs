@@ -27,6 +27,7 @@ public class Dialouguer : MonoBehaviour, I_Interactable
     public static GameObject textBG;
     public static TextMeshProUGUI LeftText;
     public static TextMeshProUGUI RightText;
+    public static bool DialogueInUse = false;
     public Color dialoguerInactiveColor = Color.darkGray;
     public Color dialoguerActiveColor = Color.white;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -111,48 +112,74 @@ public class Dialouguer : MonoBehaviour, I_Interactable
 
     public void beginDialoguing()
     {
-        Canvas.SetActive(true);
-        LeftDialoguer.sprite = LeftSpeaker[0];
-        RightDialoguer.sprite = RightSpeaker[0];
+        //if in use, can't begin.
+        if (DialogueInUse)
+        {
+            return;
+        }
 
-        //do some string tokenizing, or something
-
+        //run dialogue       
         StartCoroutine(dialogue());
 
     }
 
     IEnumerator dialogue()
     {
+        //iniitalize stuff
+        DialogueInUse = true;
+        Canvas.SetActive(true);
         LeftDialoguer.sprite = LeftSpeaker[0];
         RightDialoguer.sprite = RightSpeaker[0];
         LeftDialoguer.color = Color.clear;
         RightDialoguer.color = Color.clear;
         float timePerWord = 0.1f;
+        clearText();
+
+        //run loop for each line
         for (int i = 0; i < text.Length; i++)
         {
             //wait a frame before accepting input
-            yield return timePerWord;
+            yield return new WaitForSeconds(timePerWord);
 
-
+            //decide speaker
+            TextMeshProUGUI tmp = LeftText;
             string[] meta = textMetadata[i].Split(",");
             if (meta[0] == "L") //left active
             {
                 LeftDialoguer.color = dialoguerActiveColor;
                 RightDialoguer.color = dialoguerInactiveColor;
                 LeftDialoguer.sprite = LeftSpeaker[int.Parse(meta[1])];
+                tmp = LeftText;
             }
             if (meta[0] == "R") //right active
             {
                 RightDialoguer.color = dialoguerActiveColor;
                 LeftDialoguer.color = dialoguerInactiveColor;
                 RightDialoguer.sprite = RightSpeaker[int.Parse(meta[1])];
+                tmp = RightText;
             }
 
-            //wait for input
+            //loop for each word
+            string str = "";
+            string[] tokens = text[i].Split(" ");
+            foreach (string token in tokens)
+            {
+                str += token + " ";
+                tmp.text = str;
 
+                if (nextAction.IsPressed())
+                {
+                    //fast text
+                    continue;
+                }
+
+                yield return new WaitForSeconds(timePerWord);
+            }
+
+            //wait for input to continue
             while (!nextAction.WasPressedThisFrame())
             {
-                yield return timePerWord;
+                yield return null;
             }
             clearText();
 
@@ -161,6 +188,7 @@ public class Dialouguer : MonoBehaviour, I_Interactable
         
 
         Canvas.SetActive (false);
+        DialogueInUse = false;
 
     }
 
