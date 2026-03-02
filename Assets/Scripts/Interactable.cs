@@ -17,6 +17,8 @@ public class Interactable : MonoBehaviour
 
     public I_Interactable[] interactables;
 
+    public GameObject indicatorObject;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,11 +36,15 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        indicatorObject.SetActive(false);
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if (InteractAction.WasPressedThisFrame() && distance < interactDistance)
         {
             Interact();
+        }
+        else if (distance < interactDistance)
+        {
+            indicatorObject.SetActive(true);
         }
         //consider having an iteract icon above their head...
     }
