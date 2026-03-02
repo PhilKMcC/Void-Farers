@@ -11,14 +11,18 @@ public class testPlayerScript : MonoBehaviour
     public InputActionAsset actions;
 
     public InputAction MoveAction;
+    public InputAction JumpAction;
 
     public Rigidbody2D myBody;
 
-    public float MoveSpeed;
+    public float MoveSpeed = 2;
+    public float JumpIntensity = 2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         MoveAction = InputSystem.actions.FindAction("Player/Move");
+        JumpAction = InputSystem.actions.FindAction("Player/Jump");
+
 
     }
 
@@ -27,7 +31,11 @@ public class testPlayerScript : MonoBehaviour
     {
         Vector2 move = MoveAction.ReadValue<Vector2>();
         //Debug.Log(move);
-        myBody.linearVelocity = (move * MoveSpeed);
+        myBody.linearVelocityX = (move.x * MoveSpeed);
+        if (JumpAction.ReadValue<float>() > 0)
+        {
+            myBody.linearVelocityY = JumpIntensity;
+        }
     }
 
     private void OnEnable()
