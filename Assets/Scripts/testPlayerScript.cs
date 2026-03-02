@@ -3,6 +3,11 @@ using UnityEngine.InputSystem;
 
 public class testPlayerScript : MonoBehaviour
 {
+    /*
+     * Class Explanation:
+     * used to test the new input system. not the actual player script. advised not to use this please.
+     */
+
     public InputActionAsset actions;
 
     public InputAction MoveAction;
@@ -21,7 +26,7 @@ public class testPlayerScript : MonoBehaviour
     void Update()
     {
         Vector2 move = MoveAction.ReadValue<Vector2>();
-        Debug.Log(move);
+        //Debug.Log(move);
         myBody.linearVelocity = (move * MoveSpeed);
     }
 
