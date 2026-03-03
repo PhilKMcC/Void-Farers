@@ -23,6 +23,7 @@ public abstract class Collectable : MonoBehaviour
 
     //used to access by ID
     public static Dictionary<int, Collectable> Collectables;
+    //subclasses might want their own Dicts, for example so that the customizer can search up paints somehow
 
     //used for saving
     public static string saveLocation = "/saveCollectables.txt";
