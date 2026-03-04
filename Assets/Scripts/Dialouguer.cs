@@ -125,6 +125,8 @@ public class Dialouguer : MonoBehaviour, I_Interactable
 
     IEnumerator dialogue()
     {
+        InputSystem.actions.FindActionMap("Player").Disable();
+
         //iniitalize stuff
         DialogueInUse = true;
         Canvas.SetActive(true);
@@ -189,6 +191,8 @@ public class Dialouguer : MonoBehaviour, I_Interactable
 
         Canvas.SetActive (false);
         DialogueInUse = false;
+
+        InputSystem.actions.FindActionMap("Player").Enable();
 
     }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 
 public class PaintBucketCollectable : Collectable
 {
@@ -44,5 +45,15 @@ public class PaintBucketCollectable : Collectable
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Collect();
+    }
+
+    [MenuItem("myMenu/applyPaint")]
+    public static void applyPaint()
+    {
+        PaintBucketCollectable[] buckets = GameObject.FindObjectsByType<PaintBucketCollectable>(FindObjectsSortMode.None);
+        foreach (PaintBucketCollectable bucket in buckets)
+        {
+            bucket.paintRenderer.color = bucket.paintColor;
+        }
     }
 }
