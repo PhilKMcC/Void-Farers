@@ -58,4 +58,9 @@ public class PlayerScript : MonoBehaviour
     {
         actions.FindActionMap("Player").Disable();
     }
+
+    public Vector3 getCameraPlayerOffset()
+    {
+        return cameraOffset;
+    }
 }

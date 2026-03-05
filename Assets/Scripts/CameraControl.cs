@@ -10,7 +10,7 @@ public class CameraControl : MonoBehaviour
      */
 
     private GameObject target;
-    private Vector3 offset;
+    public Vector3 offset;
     private float size;
     public static CameraControl camControl;
 
@@ -22,23 +22,37 @@ public class CameraControl : MonoBehaviour
         {
             camControl = this;
         }
+        if(target == null)
+        {
+            //initialization funky
+            target = GameObject.FindGameObjectWithTag("Player");
+            changeTarget(target, target.GetComponent<PlayerScript>().getCameraPlayerOffset());
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = target.transform.position + offset;
+        gameObject.transform.position = target.transform.position + offset;
     }
 
-    private void changeTarget(GameObject target, Vector3 offset)
+    private void changeTargetlocal(GameObject targetp, Vector3 offsetp)
     {
-        this.target = target;
-        this.offset = offset;
+        this.target = targetp;
+        this.offset = offsetp;
+        Debug.Log("target updated: " + this.target + "; offset: " + offset);
     }
 
-    public static void changeTarget(GameObject target, Vector2 offset)
+    public static void changeTarget(GameObject targetp, Vector2 offsetp)
     {
-        Vector3 offsetNew = new Vector3(offset.x, offset.y, -10);
-        camControl.changeTarget(target, offsetNew);
+        Vector3 offsetNew = new Vector3(offsetp.x, offsetp.y, -10);
+        camControl.changeTargetlocal(targetp, offsetNew);
+    }
+
+    public static void changeTarget(GameObject targetp, Vector3 offsetp)
+    {
+        Vector3 offsetNew = new Vector3(offsetp.x, offsetp.y, -10);
+        camControl.changeTargetlocal(targetp, offsetNew);
     }
 }
