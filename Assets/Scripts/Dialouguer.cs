@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Dialouguer : MonoBehaviour, I_Interactable
+public class Dialouguer : MonoBehaviour, I_Interactable, I_Initializable
 {
     /*
      * Class Explanation:
@@ -43,12 +43,19 @@ public class Dialouguer : MonoBehaviour, I_Interactable
         }
         nextAction = InputSystem.actions.FindAction("Dialogue/Next");
 
+        I_Initializable.initials.Add(this);
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!DialogueInUse && nextAction.WasPressedThisFrame())
+        {
+            Debug.Log("noted press, even tho dialogue not active");
+        }
     }
 
 
@@ -126,6 +133,7 @@ public class Dialouguer : MonoBehaviour, I_Interactable
     IEnumerator dialogue()
     {
         InputSystem.actions.FindActionMap("Player").Disable();
+        InputSystem.actions.FindActionMap("Dialogue").Enable();
 
         //iniitalize stuff
         DialogueInUse = true;
@@ -193,6 +201,7 @@ public class Dialouguer : MonoBehaviour, I_Interactable
         DialogueInUse = false;
 
         InputSystem.actions.FindActionMap("Player").Enable();
+        InputSystem.actions.FindActionMap("Dialogue").Disable();
 
     }
 
@@ -201,6 +210,12 @@ public class Dialouguer : MonoBehaviour, I_Interactable
         Debug.Log("cleared text");
         LeftText.text = string.Empty;
         RightText.text = string.Empty;
+    }
+
+    public void init()
+    {
+        InputSystem.actions.FindActionMap("Dialogue").Disable();
+
     }
 
 }
