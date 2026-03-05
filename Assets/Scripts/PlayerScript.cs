@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -14,10 +15,12 @@ public class PlayerScript : MonoBehaviour
     public InputAction JumpAction;
 
     public Rigidbody2D myBody;
+    public Collider2D triggerer;
     public ContactFilter2D floorDetector;
 
     public float MoveSpeed = 2;
     public float JumpIntensity = 2;
+    public float gravity = 1.0f;
 
     public Vector3 cameraOffset = Vector3.zero;
 
@@ -46,6 +49,7 @@ public class PlayerScript : MonoBehaviour
         {
             myBody.linearVelocityY = JumpIntensity;
         }
+        myBody.linearVelocityY -= gravity * Time.deltaTime;
     }
 
     private void OnEnable()
@@ -62,5 +66,22 @@ public class PlayerScript : MonoBehaviour
     public Vector3 getCameraPlayerOffset()
     {
         return cameraOffset;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        myBody.bodyType = RigidbodyType2D.Kinematic;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //exited all
+        List<Collider2D> res = new List<Collider2D>();
+        triggerer.Overlap(res);
+        if ( res.Count == 0)
+        {
+            myBody.bodyType = RigidbodyType2D.Dynamic;
+
+        }
+
     }
 }
