@@ -52,6 +52,7 @@ public class elevatorCaller : MonoBehaviour, I_Interactable
             Elevator.transform.position = pos;
             yield return null;
         }
+        Elevator.transform.position = locationA;
         yield return new WaitForSeconds(callDuration);
         while(timer < callDuration * 3)
         {
@@ -59,6 +60,7 @@ public class elevatorCaller : MonoBehaviour, I_Interactable
             Elevator.transform.position = pos;
             yield return null;
         }
+        Elevator.transform.position = locationB;
 
 
         yield return null;

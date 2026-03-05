@@ -19,6 +19,8 @@ public class PlayerScript : MonoBehaviour
     public float MoveSpeed = 2;
     public float JumpIntensity = 2;
 
+    public Vector3 cameraOffset = Vector3.zero;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +30,9 @@ public class PlayerScript : MonoBehaviour
         floorDetector = new ContactFilter2D();
         floorDetector.SetNormalAngle(45, 135); //upwards normals
         //floorDetector.NoFilter();
+
+
+        CameraControl.changeTarget(gameObject, cameraOffset);
 
     }
 

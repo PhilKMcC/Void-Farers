@@ -18,7 +18,10 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
     public InputAction AttackAction;
 
     public float acceleration;
+    public float friction = 1f;
     public float maxSpeed;
+
+    public Vector2 cameraOffset = Vector2.zero;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,8 +46,17 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
             leaveRocket();
         }
 
+        //apply accelleration
         Vector2 vel = myBody.linearVelocity;
         vel += (MoveAction.ReadValue<Vector2>() * Time.deltaTime * acceleration);
+        if (vel.magnitude > maxSpeed)
+        {
+            vel = vel.normalized * maxSpeed;
+        }
+
+        //apply friction
+        vel -= vel.normalized * Mathf.Clamp(Time.deltaTime * friction,0,vel.magnitude);
+        //Mathf.Max(vel.magnitude, 1)
 
         myBody.linearVelocity = vel;
     }
@@ -55,6 +67,7 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         InputSystem.actions.FindActionMap("Player").Disable();
         InputSystem.actions.FindActionMap("Ship").Enable();
         player.SetActive(false);
+        CameraControl.changeTarget(gameObject, cameraOffset);
     }
 
     public void leaveRocket()
@@ -64,6 +77,8 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         InputSystem.actions.FindActionMap("Ship").Disable();
         player.SetActive(true);
         player.transform.position = gameObject.transform.position;
+        CameraControl.changeTarget(player, player.GetComponent<PlayerScript>().cameraOffset);
+
     }
 
     public void Interact()
