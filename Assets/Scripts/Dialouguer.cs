@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Dialouguer : MonoBehaviour, I_Interactable, I_Initializable
+public class Dialouguer : Abstr_Interactable, I_Initializable
 {
     /*
      * Class Explanation:
@@ -59,7 +59,7 @@ public class Dialouguer : MonoBehaviour, I_Interactable, I_Initializable
     }
 
 
-    public virtual void Interact()
+    public override void Interact()
     {
         Debug.Log("dialougue interacted!");
         beginDialoguing();

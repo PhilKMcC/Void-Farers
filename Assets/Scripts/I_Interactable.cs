@@ -8,6 +8,9 @@ public interface I_Interactable
      * they must also have a copy of the interactable class on them.
      * althogh, i suppose I could just make them add one if they are missing...
      */
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

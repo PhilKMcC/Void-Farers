@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Interactable : MonoBehaviour
+public class Interactor : MonoBehaviour
 {
     /*
      * Class Explanation:
@@ -51,7 +51,7 @@ public class Interactable : MonoBehaviour
 
 
 
-    public void Interact()
+    public virtual void Interact()
     {
         Debug.Log("Interacted!");
         foreach (I_Interactable interactable in interactables)
