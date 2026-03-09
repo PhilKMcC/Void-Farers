@@ -499,6 +499,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &206445444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4045440714485342960, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+  m_PrefabInstance: {fileID: 1239377299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &387461350
 GameObject:
   m_ObjectHideFlags: 0
@@ -9335,6 +9340,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: text.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'text.Array.data[0]'
+      value: This is a test of the conditional dialogue.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'text.Array.data[1]'
+      value: This text is playing on first interaction...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'text.Array.data[2]'
+      value: try interacting a second time!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: RightSpeaker.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: textMetadata.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'textMetadata.Array.data[2]'
+      value: L,0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1890352264718328010, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
     m_RemovedGameObjects: []
@@ -9343,6 +9376,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1239377301}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1239377305}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1239377304}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1239377303}
   m_SourcePrefab: {fileID: 100100000, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
 --- !u!1 &1239377300 stripped
 GameObject:
@@ -9371,12 +9413,24 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   interactDistance: 3
-  indicatorObject: {fileID: 0}
+  indicatorObject: {fileID: 206445444}
   interactions:
   - behaviour: {fileID: 1239377302}
     variable: Testing
+    min: 0
+    max: 0
+  - behaviour: {fileID: 1239377305}
+    variable: Testing
     min: 1
-    max: 5
+    max: 1
+  - behaviour: {fileID: 1239377304}
+    variable: Testing
+    min: 2
+    max: 3
+  - behaviour: {fileID: 1239377303}
+    variable: Testing
+    min: 0
+    max: 2
 --- !u!114 &1239377302 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
@@ -9388,6 +9442,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909777d3d72753a4e90fb8ee3331f995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1239377303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239377300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafa893d28e82aa418ec84f45d8c0067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable_to_change: Testing
+  mode: 1
+  value: 1
+--- !u!114 &1239377304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239377300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909777d3d72753a4e90fb8ee3331f995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftSpeaker:
+  - {fileID: 21300000, guid: 5050be3708712824cb3b9607af44d524, type: 3}
+  RightSpeaker:
+  - {fileID: 21300000, guid: 5050be3708712824cb3b9607af44d524, type: 3}
+  text:
+  - This is a test of the conditional dialogue.
+  - This text is playing on 3+ interaction
+  - Wowzers!
+  textMetadata:
+  - L,0
+  - R,0
+  - L,0
+--- !u!114 &1239377305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239377300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909777d3d72753a4e90fb8ee3331f995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftSpeaker:
+  - {fileID: 21300000, guid: 5050be3708712824cb3b9607af44d524, type: 3}
+  RightSpeaker:
+  - {fileID: 21300000, guid: 5050be3708712824cb3b9607af44d524, type: 3}
+  text:
+  - This is a test of the conditional dialogue.
+  - This text is playing on the second interaction!
+  - yipeee!!
+  textMetadata:
+  - L,0
+  - R,0
+  - L,0
 --- !u!1 &1304633635
 GameObject:
   m_ObjectHideFlags: 0

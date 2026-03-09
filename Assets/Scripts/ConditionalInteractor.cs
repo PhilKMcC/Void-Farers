@@ -34,6 +34,8 @@ public class ConditionalInteractor : Interactor
         }
 
         interactables = null;
+
+        vars = new Dictionary<string, int>();
         //loadVars();
         foreach (Interaction interact in interactions)
         {
@@ -41,6 +43,7 @@ public class ConditionalInteractor : Interactor
                 vars[interact.variable] = 0;
             }
         }
+        Debug.Log("Conditional interaction vars: " + displayVars());
 
     }
 
@@ -54,11 +57,11 @@ public class ConditionalInteractor : Interactor
         }
     }
 
-    public static void updateVar(string varname, int value)
+    public static void setVar(string varname, int value)
     {
         vars[varname] = value;
     }
-    public static void modifyVar(string varname, int byWhat)
+    public static void incVar(string varname, int byWhat)
     {
         vars[varname] += byWhat;
     }
@@ -71,4 +74,14 @@ public class ConditionalInteractor : Interactor
 
     }
     */
+
+    public static string displayVars()
+    {
+        string s = "";
+        foreach (string var in vars.Keys)
+        {
+            s += "["+var + "," + vars[var] + "] ";
+        }
+        return s;
+    }
 }

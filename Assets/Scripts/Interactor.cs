@@ -36,7 +36,7 @@ public class Interactor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        indicatorObject.SetActive(false);
+        if (indicatorObject != null) { indicatorObject.SetActive(false); }
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if (InteractAction.WasPressedThisFrame() && distance < interactDistance)
         {
@@ -44,7 +44,7 @@ public class Interactor : MonoBehaviour
         }
         else if (distance < interactDistance)
         {
-            indicatorObject.SetActive(true);
+            if (indicatorObject != null) { indicatorObject.SetActive(true); }
         }
         //consider having an iteract icon above their head...
     }
