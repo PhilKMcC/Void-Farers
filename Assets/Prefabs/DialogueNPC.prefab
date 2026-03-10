@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8120600322017661266}
   - component: {fileID: 7611338143341447516}
   - component: {fileID: 1890352264718328010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DialogueNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,8 +134,6 @@ MonoBehaviour:
   - R,0
   - L,0
   - L,0
-  dialoguerInactiveColor: {r: 0.6627451, g: 0.6627451, b: 0.6627451, a: 1}
-  dialoguerActiveColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1890352264718328010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 336452642047749338}
   - component: {fileID: 3357006646165308994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

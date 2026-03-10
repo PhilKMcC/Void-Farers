@@ -10,6 +10,7 @@ public class ConditionalInteractor : Interactor
      * The basic interactable class doesn't allow for conditional execution, so this is allowing that.
      * takes a bit more set up, but allows for conditions.
      * for each interaction, if it's variable's value in vars is between the min and max (both inclusive) it is interacted with.
+     * eventually, will want to save/load this stuff
      */
 
     [Serializable]
