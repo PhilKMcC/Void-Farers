@@ -20,6 +20,7 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
     public float acceleration;
     public float friction = 1f;
     public float maxSpeed;
+    public float rotSpeed = 30f;
 
     public Vector2 cameraOffset = Vector2.zero;
 
@@ -45,20 +46,30 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         {
             leaveRocket();
         }
-
-        //apply accelleration
-        Vector2 vel = myBody.linearVelocity;
-        vel += (MoveAction.ReadValue<Vector2>() * Time.deltaTime * acceleration);
-        if (vel.magnitude > maxSpeed)
+        else
         {
-            vel = vel.normalized * maxSpeed;
+
+            //apply accelleration
+            Vector2 vel = myBody.linearVelocity;
+            vel += (MoveAction.ReadValue<Vector2>() * Time.deltaTime * acceleration);
+            if (vel.magnitude > maxSpeed)
+            {
+                vel = vel.normalized * maxSpeed;
+            }
+
+            //apply friction
+            vel -= vel.normalized * Mathf.Clamp(Time.deltaTime * friction, 0, vel.magnitude);
+            //Mathf.Max(vel.magnitude, 1)
+
+            myBody.linearVelocity = vel;
+
+            //apply rotation
+            float rotation = Vector2.SignedAngle(gameObject.transform.up, MoveAction.ReadValue<Vector2>());
+            Mathf.Clamp(rotation, -rotSpeed, rotSpeed);
+            myBody.angularVelocity = rotation;
+
+
         }
-
-        //apply friction
-        vel -= vel.normalized * Mathf.Clamp(Time.deltaTime * friction,0,vel.magnitude);
-        //Mathf.Max(vel.magnitude, 1)
-
-        myBody.linearVelocity = vel;
     }
 
     public void enterRocket()
@@ -72,6 +83,12 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
 
     public void leaveRocket()
     {
+        //actually, 
+        //fire a raycast downwards to look for ground. 
+        // if ground found, go into langing mode, and then land, then let player out.
+        // otherwise don't let player out.
+
+
         Debug.Log("left rocket");
         InputSystem.actions.FindActionMap("Player").Enable();
         InputSystem.actions.FindActionMap("Ship").Disable();
