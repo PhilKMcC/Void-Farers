@@ -36,15 +36,21 @@ public class ConditionalInteractor : Interactor
 
         interactables = null;
 
-        vars = new Dictionary<string, int>();
-        //loadVars();
+        if (vars == null)
+        {
+            vars = new Dictionary<string, int>();
+            //loadVars();
+            
+        }
         foreach (Interaction interact in interactions)
         {
-            if (!vars.ContainsKey(interact.variable)){
+            if (!vars.ContainsKey(interact.variable))
+            {
                 vars[interact.variable] = 0;
             }
         }
         Debug.Log("Conditional interaction vars: " + displayVars());
+
 
     }
 

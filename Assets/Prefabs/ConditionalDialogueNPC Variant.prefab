@@ -1,0 +1,316 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3181929093258733963
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_Name
+      value: ConditionalDialogueNPC Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.60802
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: text.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'text.Array.data[0]'
+      value: This is a test of the conditional dialogue.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'text.Array.data[1]'
+      value: This text is playing on first interaction...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'text.Array.data[2]'
+      value: try interacting a second time!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: RightSpeaker.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: textMetadata.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'textMetadata.Array.data[2]'
+      value: L,0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1890352264718328010, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2295324471667141318}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5770717811989336553}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5241945869056122677}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5595920362818177070}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6351892029883112227}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3814145060373108850}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1059840836877616406}
+  m_SourcePrefab: {fileID: 100100000, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+--- !u!1 &805073817363270610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+  m_PrefabInstance: {fileID: 3181929093258733963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2295324471667141318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805073817363270610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c22ba8e79ebf3459b401a87d377837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d0ead374-b032-4534-8868-56658de5e56a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  interactDistance: 3
+  indicatorObject: {fileID: 1444583747313191803}
+  interactions:
+  - behaviour: {fileID: 5010426178571690199}
+    variable: Testing
+    min: 0
+    max: 0
+  - behaviour: {fileID: 5770717811989336553}
+    variable: Testing
+    min: 1
+    max: 1
+  - behaviour: {fileID: 5241945869056122677}
+    variable: Testing
+    min: 2
+    max: 3
+  - behaviour: {fileID: 5595920362818177070}
+    variable: Testing
+    min: 0
+    max: 2
+--- !u!114 &5770717811989336553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805073817363270610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909777d3d72753a4e90fb8ee3331f995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftSpeaker:
+  - {fileID: 21300000, guid: 5050be3708712824cb3b9607af44d524, type: 3}
+  RightSpeaker:
+  - {fileID: 21300000, guid: 5050be3708712824cb3b9607af44d524, type: 3}
+  text:
+  - This is a test of the conditional dialogue.
+  - This text is playing on the second interaction!
+  - yipeee!!
+  textMetadata:
+  - L,0
+  - R,0
+  - L,0
+--- !u!114 &5241945869056122677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805073817363270610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909777d3d72753a4e90fb8ee3331f995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftSpeaker:
+  - {fileID: 21300000, guid: 5050be3708712824cb3b9607af44d524, type: 3}
+  RightSpeaker:
+  - {fileID: 21300000, guid: 5050be3708712824cb3b9607af44d524, type: 3}
+  text:
+  - This is a test of the conditional dialogue.
+  - This text is playing on 3+ interaction
+  - Wowzers!
+  textMetadata:
+  - L,0
+  - R,0
+  - L,0
+--- !u!114 &5595920362818177070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805073817363270610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafa893d28e82aa418ec84f45d8c0067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable_to_change: Testing
+  mode: 1
+  value: 1
+--- !u!50 &6351892029883112227
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805073817363270610}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &3814145060373108850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805073817363270610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36afd7f8d072b224a91ac37a43dadf70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myBody: {fileID: 6351892029883112227}
+  myAnimator: {fileID: 0}
+  isWalking: 0
+  facing: 0
+  timeTilNext: 0
+  aboutTimeBetween: 3
+  moveSpeed: 1
+  maxDist: 3
+--- !u!58 &1059840836877616406
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805073817363270610}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!1 &1444583747313191803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4045440714485342960, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+  m_PrefabInstance: {fileID: 3181929093258733963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5010426178571690199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+  m_PrefabInstance: {fileID: 3181929093258733963}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805073817363270610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909777d3d72753a4e90fb8ee3331f995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

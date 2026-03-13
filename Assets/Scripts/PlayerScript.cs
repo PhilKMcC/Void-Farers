@@ -35,7 +35,7 @@ public class PlayerScript : MonoBehaviour
         //floorDetector.NoFilter();
 
 
-        CameraControl.changeTarget(gameObject, cameraOffset);
+        //CameraControl.changeTarget(gameObject, cameraOffset);
 
     }
 
@@ -70,7 +70,10 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        myBody.bodyType = RigidbodyType2D.Kinematic;
+        if (collision.gameObject.layer == 9)
+        {
+            myBody.bodyType = RigidbodyType2D.Kinematic;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

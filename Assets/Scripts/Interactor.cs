@@ -34,7 +34,7 @@ public class Interactor : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (indicatorObject != null) { indicatorObject.SetActive(false); }
         float distance = Vector3.Distance(transform.position, player.transform.position);
