@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2392001816952392172}
   - component: {fileID: 689032639671076143}
   - component: {fileID: 5727074433791640048}
-  - component: {fileID: 6510525403894376901}
   - component: {fileID: 5375556743606523906}
   - component: {fileID: 1589132013156921824}
+  - component: {fileID: 8562308291885687025}
   m_Layer: 7
   m_Name: RocketShip
   m_TagString: Ship
@@ -168,29 +168,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6510525403894376901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4085372636513818198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9309a1c83cca674a90c06a71634c9d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 11a9dc6e-6952-401d-a13c-8ff3b69ab3f2
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  interactDistance: 3
-  indicatorObject: {fileID: 9040330276438060185}
 --- !u!70 &5375556743606523906
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -247,6 +224,29 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &8562308291885687025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085372636513818198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55267f3cef535c24b87e614bc8fedd95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2c200a92-a3fa-4665-b0ef-529f676c1739
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  interactDistance: 3
+  indicatorObject: {fileID: 9040330276438060185}
 --- !u!1 &9040330276438060185
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,10 +323,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1350719223, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
+  m_Sprite: {fileID: -1476951808, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.7176471}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5

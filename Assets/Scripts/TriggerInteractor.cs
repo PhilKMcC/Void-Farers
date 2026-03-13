@@ -16,7 +16,7 @@ public class TriggerInteractor : ConditionalInteractor
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
         InteractAction = InputSystem.actions.FindAction("Player/Interact");
         if (player == null)

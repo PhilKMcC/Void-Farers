@@ -86,7 +86,7 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         InputSystem.actions.FindActionMap("Ship").Enable();
         CameraControl.changeTarget(gameObject, cameraOffset);
         CameraControl.changeScale(camSize);
-        player.transform.position = new Vector3(999999999, 999999999, 0);//send player very far away
+        player.transform.position = new Vector3(99999, 99999, 0);//send player very far away
         player.SetActive(false);
     }
 
