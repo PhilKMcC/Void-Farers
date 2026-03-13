@@ -11,7 +11,7 @@ public class CameraControl : MonoBehaviour
 
     private GameObject target;
     public Vector3 offset;
-    private float size;
+    private float defaultSize = 5;
     public static CameraControl camControl;
 
 
@@ -29,6 +29,7 @@ public class CameraControl : MonoBehaviour
             changeTarget(target, target.GetComponent<PlayerScript>().getCameraPlayerOffset());
 
         }
+        defaultSize = Camera.main.orthographicSize;
     }
 
     // Update is called once per frame
@@ -54,5 +55,17 @@ public class CameraControl : MonoBehaviour
     {
         Vector3 offsetNew = new Vector3(offsetp.x, offsetp.y, -10);
         camControl.changeTargetlocal(targetp, offsetNew);
+    }
+
+
+    
+    public static void changeScale(float scale)
+    {
+        //ideally, we have a go between, but this is fine for now.
+        Camera.main.orthographicSize = scale;
+    }
+    public static void resetScale()
+    {
+        Camera.main.orthographicSize = camControl.defaultSize;
     }
 }

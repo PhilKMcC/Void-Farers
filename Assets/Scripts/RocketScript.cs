@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using System.Collections;
 
 public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
 {
@@ -21,6 +23,11 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
     public float friction = 1f;
     public float maxSpeed;
     public float rotSpeed = 30f;
+    public float landingDist = 2;
+
+    public float camSize = 10;
+
+    private bool isLanding = false;
 
     public Vector2 cameraOffset = Vector2.zero;
 
@@ -77,8 +84,10 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         Debug.Log("entered rocket");
         InputSystem.actions.FindActionMap("Player").Disable();
         InputSystem.actions.FindActionMap("Ship").Enable();
-        player.SetActive(false);
         CameraControl.changeTarget(gameObject, cameraOffset);
+        CameraControl.changeScale(camSize);
+        player.transform.position = new Vector3(999999999, 999999999, 0);//send player very far away
+        player.SetActive(false);
     }
 
     public void leaveRocket()
@@ -87,15 +96,36 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         //fire a raycast downwards to look for ground. 
         // if ground found, go into langing mode, and then land, then let player out.
         // otherwise don't let player out.
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(0b001000000000);
+        List<RaycastHit2D> hits = new List<RaycastHit2D>();
+        Physics2D.Raycast(transform.position, Vector2.down, filter, hits, landingDist);
+        if (hits.Count > 0 && !isLanding)
+        {
 
+            StartCoroutine(Landing());
+        }
+        
 
+    }
+
+   public IEnumerator Landing()
+    {
+        isLanding = true;
+        //first rotate to be vertical
+
+        //then ground yourself.
+
+        //exit the rocket
         Debug.Log("left rocket");
         InputSystem.actions.FindActionMap("Player").Enable();
         InputSystem.actions.FindActionMap("Ship").Disable();
         player.SetActive(true);
         player.transform.position = gameObject.transform.position;
         CameraControl.changeTarget(player, player.GetComponent<PlayerScript>().cameraOffset);
-
+        CameraControl.resetScale();
+        isLanding = false;
+        yield return null;
     }
 
     public void Interact()

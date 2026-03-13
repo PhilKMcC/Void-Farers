@@ -136,8 +136,10 @@ MonoBehaviour:
     m_Flags: 0
   acceleration: 3
   friction: 1
-  maxSpeed: 6
-  rotSpeed: 0
+  maxSpeed: 10
+  rotSpeed: 60
+  landingDist: 2
+  camSize: 8
   cameraOffset: {x: 0, y: 0}
 --- !u!50 &5727074433791640048
 Rigidbody2D:
@@ -237,11 +239,11 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 567
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 225
+  m_SurfaceArc: 300
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1

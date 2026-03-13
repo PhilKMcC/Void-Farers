@@ -8469,7 +8469,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -11312,6 +11312,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 56912346}
+    - target: {fileID: 689032639671076143, guid: 9b921b9c1736c6d47970a654e2ccb8b7, type: 3}
+      propertyPath: camSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589132013156921824, guid: 9b921b9c1736c6d47970a654e2ccb8b7, type: 3}
+      propertyPath: m_ColliderMask.m_Bits
+      value: 695
+      objectReference: {fileID: 0}
     - target: {fileID: 4085372636513818198, guid: 9b921b9c1736c6d47970a654e2ccb8b7, type: 3}
       propertyPath: m_Name
       value: RocketShip
