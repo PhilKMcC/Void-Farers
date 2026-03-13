@@ -162,6 +162,7 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
     public void init()
     {
         InputSystem.actions.FindActionMap("Ship").Disable();
+        transform.rotation = Quaternion.identity;
     }
 
 }
