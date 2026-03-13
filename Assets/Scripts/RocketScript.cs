@@ -28,6 +28,7 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
     public float camSize = 10;
 
     private bool isLanding = false;
+    private ContactFilter2D TilesFilter;
 
     public Vector2 cameraOffset = Vector2.zero;
 
@@ -43,6 +44,10 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         AttackAction = InputSystem.actions.FindAction("Ship/Attack");
 
         I_Initializable.initials.Add(this);
+
+        TilesFilter = new ContactFilter2D();
+        TilesFilter.SetLayerMask(0b001000000000);
+
 
     }
 
@@ -96,10 +101,9 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         //fire a raycast downwards to look for ground. 
         // if ground found, go into langing mode, and then land, then let player out.
         // otherwise don't let player out.
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.SetLayerMask(0b001000000000);
+        
         List<RaycastHit2D> hits = new List<RaycastHit2D>();
-        Physics2D.Raycast(transform.position, Vector2.down, filter, hits, landingDist);
+        Physics2D.Raycast(transform.position, Vector2.down, TilesFilter, hits, landingDist);
         if (hits.Count > 0 && !isLanding)
         {
 
@@ -111,15 +115,36 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
 
    public IEnumerator Landing()
     {
+        InputSystem.actions.FindActionMap("Ship").Disable();
+
         isLanding = true;
         //first rotate to be vertical
+        myBody.angularVelocity = 0;
+        myBody.linearVelocity = Vector2.zero;
+        float closeEnough = 1;
+        while (Vector2.Angle(gameObject.transform.up, Vector2.up) > closeEnough)
+        {
+            float rotation = Vector2.SignedAngle(gameObject.transform.up, Vector2.up);
+            rotation = (rotation > 0)?(rotSpeed):(-rotSpeed);
+            //Mathf.Clamp(rotation, -rotSpeed, rotSpeed);
+            myBody.angularVelocity = rotation;
+            yield return null;
+        }
+        myBody.angularVelocity = 0;
+        myBody.rotation = 0;
 
         //then ground yourself.
+        List<Collider2D> colliders = new List<Collider2D>();
+        while (myBody.GetContacts(TilesFilter, colliders) == 0)
+        {
+            myBody.linearVelocity = Vector2.down * (maxSpeed / 4);
+            yield return null;
+        }
+        myBody.linearVelocity = Vector2.zero;
 
         //exit the rocket
         Debug.Log("left rocket");
         InputSystem.actions.FindActionMap("Player").Enable();
-        InputSystem.actions.FindActionMap("Ship").Disable();
         player.SetActive(true);
         player.transform.position = gameObject.transform.position;
         CameraControl.changeTarget(player, player.GetComponent<PlayerScript>().cameraOffset);

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5375556743606523906}
   - component: {fileID: 1589132013156921824}
   - component: {fileID: 8562308291885687025}
+  - component: {fileID: 8847898318288712396}
   m_Layer: 7
   m_Name: RocketShip
   m_TagString: Ship
@@ -138,7 +139,7 @@ MonoBehaviour:
   friction: 1
   maxSpeed: 10
   rotSpeed: 60
-  landingDist: 2
+  landingDist: 4
   camSize: 8
   cameraOffset: {x: 0, y: 0}
 --- !u!50 &5727074433791640048
@@ -216,11 +217,11 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 695
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 300
+  m_SurfaceArc: 340
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -247,6 +248,22 @@ MonoBehaviour:
     m_Flags: 0
   interactDistance: 3
   indicatorObject: {fileID: 9040330276438060185}
+--- !u!114 &8847898318288712396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085372636513818198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533d3f483810c1146a52d21153bc055b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  words: 'I''ve realized that for my landing to work, the ship can''t have the "no
+    back collisions" thing, so I''ve disabled it for now. Hypothetically, we could
+    just turn it on and off as needed. Actually, nevermind it does work for some
+    reason. '
 --- !u!1 &9040330276438060185
 GameObject:
   m_ObjectHideFlags: 0
