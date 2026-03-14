@@ -13,7 +13,7 @@ public class SpaceInteractor : Interactor
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
-        InteractAction = InputSystem.actions.FindAction("Player/Jump");
+        InteractAction = InputSystem.actions.FindAction("Player/Jump"); //spacekey
 
         if (player == null)
         {

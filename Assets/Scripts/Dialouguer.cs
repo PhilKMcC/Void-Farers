@@ -126,6 +126,7 @@ public class Dialouguer : Abstr_Interactable, I_Initializable
         }
 
         //run dialogue       
+        midAction = true;
         StartCoroutine(dialogue());
 
     }
@@ -192,6 +193,7 @@ public class Dialouguer : Abstr_Interactable, I_Initializable
                 yield return null;
             }
             clearText();
+            
 
         }
 
@@ -202,6 +204,7 @@ public class Dialouguer : Abstr_Interactable, I_Initializable
 
         InputSystem.actions.FindActionMap("Player").Enable();
         InputSystem.actions.FindActionMap("Dialogue").Disable();
+        midAction = false;
 
     }
 

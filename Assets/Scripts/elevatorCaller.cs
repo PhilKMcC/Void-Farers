@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class elevatorCaller : MonoBehaviour, I_Interactable
+public class elevatorCaller : Abstr_Interactable
 {
     /*
      * Class Explanation:
@@ -13,7 +13,7 @@ public class elevatorCaller : MonoBehaviour, I_Interactable
     public GameObject Elevator;
     public Vector3 locationA;
     public Vector3 locationB;
-    private Vector3 offset; //locationB -locationA
+    protected Vector3 offset; //locationB -locationA
 
     public float callDuration = 5;
     public float timer = 0;
@@ -34,16 +34,17 @@ public class elevatorCaller : MonoBehaviour, I_Interactable
         }
     }
 
-    public void Interact()
+    public override void Interact()
     {
         if (timer >= callDuration * 3)
         {
             Debug.Log("ElevatorCalled");
+            midAction = true;
             StartCoroutine(CallElevator());
         }
     }
 
-    IEnumerator CallElevator()
+    protected virtual IEnumerator CallElevator()
     {
         timer = 0;
         Vector3 start = Elevator.transform.position;
@@ -53,6 +54,7 @@ public class elevatorCaller : MonoBehaviour, I_Interactable
             yield return null;
         }
         Elevator.transform.position = locationA;
+        
         yield return new WaitForSeconds(callDuration);
         while(timer < callDuration * 3)
         {
@@ -62,7 +64,7 @@ public class elevatorCaller : MonoBehaviour, I_Interactable
         }
         Elevator.transform.position = locationB;
 
-
+        midAction = false;
         yield return null;
     }
 
