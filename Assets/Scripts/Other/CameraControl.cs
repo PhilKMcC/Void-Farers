@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraControl : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class CameraControl : MonoBehaviour
 
     private GameObject target;
     public Vector3 offset;
-    private float defaultSize = 5;
+    private float defaultDist = 10; //the distance away from the 2d region this is. negative to the z coord.
     public static CameraControl camControl;
 
 
@@ -29,13 +31,13 @@ public class CameraControl : MonoBehaviour
             changeTarget(target, target.GetComponent<PlayerScript>().getCameraPlayerOffset());
 
         }
-        defaultSize = Camera.main.orthographicSize;
+        defaultDist = -transform.position.z;
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = target.transform.position + offset;
+        gameObject.transform.position = new Vector3(target.transform.position.x + offset.x, target.transform.position.y + offset.y,gameObject.transform.position.z);
     }
 
     private void changeTargetlocal(GameObject targetp, Vector3 offsetp)
@@ -61,11 +63,39 @@ public class CameraControl : MonoBehaviour
     
     public static void changeScale(float scale)
     {
-        //ideally, we have a go between, but this is fine for now.
-        Camera.main.orthographicSize = scale;
+        camControl.StopAllCoroutines(); //caution if have multiple diff coroutines
+        camControl.StartCoroutine(camControl.gradualScale( scale));
     }
     public static void resetScale()
     {
-        Camera.main.orthographicSize = camControl.defaultSize;
+        camControl.StopAllCoroutines(); //caution if have multiple diff coroutines
+        camControl.StartCoroutine(camControl.gradualScale( camControl.defaultDist));
+    }
+
+    IEnumerator gradualScale(float become)
+    {
+        become = -become;
+        float closeEnough = 0.1f;
+        float speedOfChange = 2f;
+
+        //go further back (zoom out)
+        while (transform.position.z > become + closeEnough)
+        {
+            transform.position = transform.position + Vector3.back * (speedOfChange * Time.deltaTime);
+            Debug.Log("zooming out");
+            yield return null;
+        }
+        //go closer (zoom in)
+        while (transform.position.z < become - closeEnough)
+        {
+            transform.position = transform.position + Vector3.forward * (speedOfChange * Time.deltaTime);
+            Debug.Log("zooming in");
+            yield return null;
+        }
+
+        //snap to
+        transform.position = new Vector3(transform.position.x, transform.position.y, become);
+
+        yield return null;
     }
 }

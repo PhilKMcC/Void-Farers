@@ -25,7 +25,7 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
     public float rotSpeed = 30f;
     public float landingDist = 2;
 
-    public float camSize = 10;
+    public float camDist = 15;
 
     private bool isLanding = false;
     private ContactFilter2D TilesFilter;
@@ -90,7 +90,7 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         InputSystem.actions.FindActionMap("Player").Disable();
         InputSystem.actions.FindActionMap("Ship").Enable();
         CameraControl.changeTarget(gameObject, cameraOffset);
-        CameraControl.changeScale(camSize);
+        CameraControl.changeScale(camDist);
         player.transform.position = new Vector3(99999, 99999, 0);//send player very far away
         player.SetActive(false);
     }
