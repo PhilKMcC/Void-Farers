@@ -2626,11 +2626,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 696606706701281592, guid: 4d55b94e72629594fb124fc631ca7931, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0
+      value: 0.016129017
       objectReference: {fileID: 0}
     - target: {fileID: 696606706701281592, guid: 4d55b94e72629594fb124fc631ca7931, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0
+      value: 0.016129017
       objectReference: {fileID: 0}
     - target: {fileID: 1592365594456196972, guid: 4d55b94e72629594fb124fc631ca7931, type: 3}
       propertyPath: m_Name
@@ -2638,11 +2638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3628261704053600163, guid: 4d55b94e72629594fb124fc631ca7931, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0
+      value: 0.016129017
       objectReference: {fileID: 0}
     - target: {fileID: 3628261704053600163, guid: 4d55b94e72629594fb124fc631ca7931, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0
+      value: 0.016129017
       objectReference: {fileID: 0}
     - target: {fileID: 5513840353284329987, guid: 4d55b94e72629594fb124fc631ca7931, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25176,11 +25176,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 696606706701281592, guid: 4d55b94e72629594fb124fc631ca7931, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0
+      value: 0.016129017
       objectReference: {fileID: 0}
     - target: {fileID: 696606706701281592, guid: 4d55b94e72629594fb124fc631ca7931, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0
+      value: 0.016129017
       objectReference: {fileID: 0}
     - target: {fileID: 1592365594456196972, guid: 4d55b94e72629594fb124fc631ca7931, type: 3}
       propertyPath: m_Name
