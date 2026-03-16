@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 124431146}
   - component: {fileID: 124431148}
   - component: {fileID: 124431147}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tilemap bonus edges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -956,7 +956,7 @@ GameObject:
   - component: {fileID: 613627893}
   - component: {fileID: 613627895}
   - component: {fileID: 613627894}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tilemap noncolliding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12646,7 +12646,7 @@ GameObject:
   - component: {fileID: 1400878633}
   - component: {fileID: 1400878635}
   - component: {fileID: 1400878634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tilemap noncolliding edges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16100,7 +16100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1529931109}
   - component: {fileID: 1529931108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16387,7 +16387,7 @@ GameObject:
   - component: {fileID: 2027214332}
   - component: {fileID: 2027214331}
   - component: {fileID: 2027214330}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tilemap Colliding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
