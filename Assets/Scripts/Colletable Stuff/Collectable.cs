@@ -26,7 +26,7 @@ public abstract class Collectable : MonoBehaviour
     //subclasses might want their own Dicts, for example so that the customizer can search up paints somehow
 
     //used for saving
-    public static string saveLocation = "/saveCollectables.txt";
+    public static string savefileLocationCollectables = "/saveCollectables.csv";
 
     
 
@@ -54,7 +54,7 @@ public abstract class Collectable : MonoBehaviour
 
     public static void resetCollection()
     {
-        string path = Application.persistentDataPath + saveLocation;
+        string path = Application.persistentDataPath + savefileLocationCollectables;
         //Write some text to the test.txt file
         StreamWriter writer = new StreamWriter(path, false);
         //writer.WriteLine("Test");
@@ -75,8 +75,7 @@ public abstract class Collectable : MonoBehaviour
 
     public static void loadCollection()
     {
-        string path = Application.persistentDataPath + saveLocation;
-        //Read the text from directly from the test.txt file
+        string path = Application.persistentDataPath + savefileLocationCollectables;
 
         try
         {
@@ -105,7 +104,7 @@ public abstract class Collectable : MonoBehaviour
 
     public static void saveCollection()
     {
-        string path = Application.persistentDataPath + saveLocation;
+        string path = Application.persistentDataPath + savefileLocationCollectables;
         //Write some text to the test.txt file
         StreamWriter writer = new StreamWriter(path, false);
         //writer.WriteLine("Test");
@@ -122,10 +121,10 @@ public abstract class Collectable : MonoBehaviour
         reader.Close();
     }
 
-    [MenuItem("myMenu/deleteCollection")]
+    [MenuItem("myMenu/deleteCollectionData")]
     public static void deleteCollection()
     {
-        string path = Application.persistentDataPath + saveLocation;
+        string path = Application.persistentDataPath + savefileLocationCollectables;
         File.Delete(path);
         /*StreamWriter writer = new StreamWriter(path, false);
         writer.WriteLine("");

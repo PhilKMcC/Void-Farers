@@ -39,6 +39,9 @@ public class simpleCollectable : Collectable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Collect();
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Ship"))
+        {
+            Collect();
+        }
     }
 }

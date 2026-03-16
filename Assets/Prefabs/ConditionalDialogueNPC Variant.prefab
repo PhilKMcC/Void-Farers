@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
       propertyPath: 'text.Array.data[2]'
-      value: try interacting a second time!
+      value: try interacting a second time! also, try saving!
       objectReference: {fileID: 0}
     - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
       propertyPath: RightSpeaker.Array.size
