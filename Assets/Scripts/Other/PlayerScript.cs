@@ -24,6 +24,8 @@ public class PlayerScript : MonoBehaviour
 
     public Vector3 cameraOffset = Vector3.zero;
 
+    public Animator myAnimator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +38,9 @@ public class PlayerScript : MonoBehaviour
 
 
         //CameraControl.changeTarget(gameObject, cameraOffset);
+
+
+
 
     }
 
@@ -50,6 +55,8 @@ public class PlayerScript : MonoBehaviour
             myBody.linearVelocityY = JumpIntensity;
         }
         myBody.linearVelocityY -= gravity * Time.deltaTime;
+
+        myAnimator.SetFloat("movement", myBody.linearVelocityX);
     }
 
     private void OnEnable()

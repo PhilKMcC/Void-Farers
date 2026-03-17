@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 3949044592673635976}
   - component: {fileID: 2603210453556753896}
   - component: {fileID: 5663909635160981992}
+  - component: {fileID: 4195272984120514122}
   m_Layer: 6
   m_Name: player
   m_TagString: Player
@@ -274,3 +275,26 @@ MonoBehaviour:
   JumpIntensity: 5
   gravity: 9.8
   cameraOffset: {x: 0, y: 0, z: -10}
+  myAnimator: {fileID: 4195272984120514122}
+--- !u!95 &4195272984120514122
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403556367688569188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 461b5a8978da2ee4f8103709b101eba0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
