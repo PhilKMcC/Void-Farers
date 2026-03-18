@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : Abstr_Damagable
 {
     /*
      * Class Explanation:
@@ -25,6 +25,8 @@ public class PlayerScript : MonoBehaviour
     public Vector3 cameraOffset = Vector3.zero;
 
     public Animator myAnimator;
+
+    public bool alive = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -94,4 +96,11 @@ public class PlayerScript : MonoBehaviour
         }
 
     }
+
+    public override void Damage()
+    {
+        alive = false;
+        actions.Disable();
+    }
+
 }

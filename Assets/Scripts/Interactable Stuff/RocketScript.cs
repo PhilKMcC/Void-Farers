@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Collections;
 
-public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
+public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
 {
     /*
      * Class Explanation:
@@ -33,6 +33,8 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
     public Vector2 cameraOffset = Vector2.zero;
 
     public Animator myAnimator;
+
+    public bool exploded = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -175,4 +177,18 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         transform.rotation = Quaternion.identity;
     }
 
+    public override void Damage()
+    {
+        //explode
+        exploded = true;
+        InputSystem.actions.FindActionMap("Ship").Disable();
+        Debug.Log("left rocket");
+        InputSystem.actions.FindActionMap("Player").Enable();
+        player.SetActive(true);
+        player.transform.position = gameObject.transform.position;
+        CameraControl.changeTarget(player, player.GetComponent<PlayerScript>().cameraOffset);
+        CameraControl.resetScale();
+
+
+    }
 }
