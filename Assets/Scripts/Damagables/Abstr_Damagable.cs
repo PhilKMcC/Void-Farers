@@ -19,6 +19,8 @@ public abstract class Abstr_Damagable : MonoBehaviour, I_Damagable
 
     protected string myTag = null;
 
+    public bool diesOnWallHit = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,6 +53,10 @@ public abstract class Abstr_Damagable : MonoBehaviour, I_Damagable
             Damage();
         }
         if (!neutralsTags.Contains(myTag) && neutralsTags.Contains(otherTag))
+        {
+            Damage();
+        }
+        if(diesOnWallHit && (collision.gameObject.layer == 9))
         {
             Damage();
         }

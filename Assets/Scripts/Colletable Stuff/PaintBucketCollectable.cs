@@ -47,7 +47,9 @@ public class PaintBucketCollectable : Collectable
         Collect();
     }
 
+#if UNITY_EDITOR
     [MenuItem("myMenu/applyPaint")]
+#endif
     public static void applyPaint()
     {
         PaintBucketCollectable[] buckets = GameObject.FindObjectsByType<PaintBucketCollectable>(FindObjectsSortMode.None);
