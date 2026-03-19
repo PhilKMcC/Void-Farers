@@ -66,11 +66,12 @@ public class PlayerScript : Abstr_Damagable
         actions.FindActionMap("Player").Enable();
     }
 
-    
+    /*
     private void OnDisable()
     {
         actions.FindActionMap("Player").Disable();
     }
+    */
 
     public Vector3 getCameraPlayerOffset()
     {

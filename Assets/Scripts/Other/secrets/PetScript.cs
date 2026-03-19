@@ -27,6 +27,7 @@ public class PetScript : MonoBehaviour
 
     private InputAction mouseClick;
     private InputAction mousePosition;
+    private InputAction PlayerMove;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class PetScript : MonoBehaviour
         myBody = GetComponent<Rigidbody2D>();
         myrenderer = GetComponent<SpriteRenderer>();
         playerscript = GetComponent<PlayerScript>();
+        PlayerMove = InputSystem.actions.FindAction("Player/Move");
         
     }
 
@@ -101,7 +103,7 @@ public class PetScript : MonoBehaviour
         {
             MyOnMouseDown();
         }
-        if (playerscript.MoveAction.ReadValue<Vector2>().magnitude > 0.1)
+        if (PlayerMove.ReadValue<Vector2>().magnitude > 0.1)
         {
             playerscript.enabled = true;
         }

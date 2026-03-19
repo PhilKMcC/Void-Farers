@@ -156,7 +156,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3730821566637778371, guid: cdc09d519502b52489474b6549c08206, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -350
+      objectReference: {fileID: 0}
     - target: {fileID: 6048271198487133577, guid: cdc09d519502b52489474b6549c08206, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -392,6 +396,30 @@ PrefabInstance:
     - target: {fileID: 6048271198487133577, guid: cdc09d519502b52489474b6549c08206, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819553338645371651, guid: cdc09d519502b52489474b6549c08206, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186624793633759490, guid: cdc09d519502b52489474b6549c08206, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186624793633759490, guid: cdc09d519502b52489474b6549c08206, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186624793633759490, guid: cdc09d519502b52489474b6549c08206, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186624793633759490, guid: cdc09d519502b52489474b6549c08206, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186624793633759490, guid: cdc09d519502b52489474b6549c08206, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9433962
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2747,7 +2775,7 @@ Transform:
   m_GameObject: {fileID: 2061366714}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.32649, y: 24.13696, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2773,8 +2801,8 @@ MonoBehaviour:
   hOffset: 0.75
   wOffset: 0.5
   myrenderer: {fileID: 0}
-  basic: {fileID: 0}
-  grabbed: {fileID: 0}
+  basic: {fileID: 8366311348534680897, guid: 2e9cf5f3c9c0b5849ab85e837fd99edd, type: 3}
+  grabbed: {fileID: 8366311348534680897, guid: 2e9cf5f3c9c0b5849ab85e837fd99edd, type: 3}
   carried: 0
   offset: {x: 0, y: 0, z: 0}
   myBody: {fileID: 0}
