@@ -158,9 +158,7 @@ public class ConditionalInteractor : Interactor
         reader.Close();
     }
 
-#if UNITY_EDITOR
     [MenuItem("myMenu/deleteConditionalData")]
-#endif
     public static void deleteConditionalData()
     {
         string path = Application.persistentDataPath + savefileLocationVars;

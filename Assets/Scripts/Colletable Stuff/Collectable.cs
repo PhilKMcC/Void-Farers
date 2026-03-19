@@ -2,9 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using UnityEditor;
-#if UNITY_EDITOR
 using UnityEditor.Overlays;
-#endif
 using UnityEngine;
 
 public abstract class Collectable : MonoBehaviour
@@ -123,9 +121,7 @@ public abstract class Collectable : MonoBehaviour
         reader.Close();
     }
 
-#if UNITY_EDITOR
     [MenuItem("myMenu/deleteCollectionData")]
-#endif
     public static void deleteCollection()
     {
         string path = Application.persistentDataPath + savefileLocationCollectables;
