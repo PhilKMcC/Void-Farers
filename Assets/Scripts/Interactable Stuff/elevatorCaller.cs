@@ -48,14 +48,20 @@ public class elevatorCaller : Abstr_Interactable
     {
         timer = 0;
         Vector3 start = Elevator.transform.position;
-        while(timer < callDuration) {
-            Vector3 pos = start + offset * (timer/callDuration);
-            Elevator.transform.position = pos;
-            yield return null;
+        Vector3 startOffset = locationA - start;
+        if (Elevator.transform.position != locationA) //quick skip if already here
+        {
+            while (timer < callDuration)
+            {
+                Vector3 pos = start + startOffset * (timer / callDuration);
+                Elevator.transform.position = pos;
+                yield return null;
+            }
+            Elevator.transform.position = locationA;
+
+            yield return new WaitForSeconds(callDuration);
         }
-        Elevator.transform.position = locationA;
-        
-        yield return new WaitForSeconds(callDuration);
+        timer = callDuration * 2;
         while(timer < callDuration * 3)
         {
             Vector3 pos = locationA - offset * ((timer - callDuration * 2) / callDuration);
