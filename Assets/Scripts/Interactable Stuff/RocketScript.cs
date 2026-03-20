@@ -52,6 +52,7 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         TilesFilter = new ContactFilter2D();
         TilesFilter.SetLayerMask(0b001000000000);
 
+        myAnimator.SetTrigger("Reset");
 
     }
 
@@ -180,6 +181,7 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
     public override void Damage()
     {
         //explode
+        myAnimator.SetTrigger("Explode");
         exploded = true;
         InputSystem.actions.FindActionMap("Ship").Disable();
         Debug.Log("left rocket");
@@ -190,5 +192,10 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         CameraControl.resetScale();
 
 
+    }
+
+    public void OnDestroy()
+    {
+        //respawn the rocket
     }
 }
