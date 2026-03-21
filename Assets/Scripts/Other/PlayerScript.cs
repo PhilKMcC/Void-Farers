@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Collections;
 
 public class PlayerScript : Abstr_Damagable
 {
@@ -27,6 +28,8 @@ public class PlayerScript : Abstr_Damagable
     public Animator myAnimator;
 
     public bool alive = true;
+
+    private bool moonwalking = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,7 +61,23 @@ public class PlayerScript : Abstr_Damagable
         }
         myBody.linearVelocityY -= gravity * Time.deltaTime;
 
-        myAnimator.SetFloat("movement", myBody.linearVelocityX);
+        int flip = moonwalking ? -1 : 1;
+        myAnimator.SetFloat("movement", myBody.linearVelocityX * flip);
+
+        if (InputSystem.actions.FindAction("Player/MoonwalkEmote").WasPressedThisFrame())
+        {
+            StartCoroutine(Moonwalk());
+        }
+    }
+
+    IEnumerator Moonwalk()
+    {
+        Debug.Log("moonwalking");
+        moonwalking = true;
+        float waitDur = 5;
+        yield return new WaitForSeconds(waitDur);
+        moonwalking = false;
+        
     }
 
     private void OnEnable()

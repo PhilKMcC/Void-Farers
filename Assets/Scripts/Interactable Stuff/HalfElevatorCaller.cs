@@ -24,5 +24,6 @@ public class HalfElevatorCaller : elevatorCaller
         Elevator.transform.position = locationA;
         timer = callDuration * 3;
         midAction = false;
+        myRenderer.color = defaultColor;
     }
 }

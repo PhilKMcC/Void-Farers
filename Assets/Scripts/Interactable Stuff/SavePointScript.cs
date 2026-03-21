@@ -93,7 +93,7 @@ public class SavePointScript : Abstr_Interactable
                 {
                     string[] toks = token.Split(",");
                     Debug.Log("token count: " + toks.Length + " position: " + toks[0] + "," + toks[1] + "," + toks[2]);
-                    Vector3 readPosition = new Vector3(int.Parse(toks[0]), int.Parse(toks[1]), int.Parse(toks[2]));
+                    Vector3 readPosition = new Vector3(float.Parse(toks[0]), float.Parse(toks[1]), float.Parse(toks[2]));
                     if (readPosition != Vector3.zero)
                     {
                         respawnLocation = readPosition;

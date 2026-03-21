@@ -8,6 +8,8 @@ public class Asteroid : Abstr_Damagable
      * need at least one in the scene for the collisions to work properly, since we need something to initialize them
      */
 
+    
+
     void Start()
     {
         myTag = gameObject.tag;
