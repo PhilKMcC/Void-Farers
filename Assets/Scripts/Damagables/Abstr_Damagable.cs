@@ -8,7 +8,7 @@ public abstract class Abstr_Damagable : MonoBehaviour, I_Damagable
      * when they are hit by an opposing attack they do something, such as taking damage or dying, as defined by Damage().
      * opposing is defined by the tags. like tags don't hurt each other. other tags do.
      * Player, Ship, and friendly are like tags. damgaged by enemies and nuetrals
-     * enemy is a tag, includes basic enemies. might make boss a like tag. damaged by friendlies and nuetrals
+     * enemy and boss are like tags, includes basic enemies. damaged by friendlies and nuetrals
      * nuetral is a tag. includes stuff like asteroids, or traps. damaged by friendlies and enemies.
      */
 
@@ -16,8 +16,10 @@ public abstract class Abstr_Damagable : MonoBehaviour, I_Damagable
     public static HashSet<string> friendliesTags;
     public static HashSet<string> enemiesTags;
     public static HashSet<string> neutralsTags;
+    public bool DamagedByTiles;
 
     protected string myTag = null;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,6 +53,10 @@ public abstract class Abstr_Damagable : MonoBehaviour, I_Damagable
             Damage();
         }
         if (!neutralsTags.Contains(myTag) && neutralsTags.Contains(otherTag))
+        {
+            Damage();
+        }
+        if (DamagedByTiles && collision.gameObject.layer == 9)
         {
             Damage();
         }

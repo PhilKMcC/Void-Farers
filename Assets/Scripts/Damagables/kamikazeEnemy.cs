@@ -16,6 +16,7 @@ public class kamikazeEnemy : Abstr_Damagable
         myTag = gameObject.tag;
         initializeSets();
         if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
+        if (Rocket == null) { Rocket = GameObject.FindGameObjectWithTag("Ship"); }
     }
 
     // Update is called once per frame
