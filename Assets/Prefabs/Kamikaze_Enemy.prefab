@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6289063382973267738}
   - component: {fileID: 7746511137470005364}
   - component: {fileID: 6613195972552576959}
+  - component: {fileID: -938296496593936250}
   m_Layer: 0
   m_Name: Kamikaze_Enemy
   m_TagString: Untagged
@@ -165,7 +166,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac4d2b590f8a694e8c700c70dec80bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamagedByTiles: 0
   Rocket: {fileID: 0}
   Speed: 5
   myBody: {fileID: 0}
   rotSpeed: 30
+--- !u!95 &-938296496593936250
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8672411713978782816}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

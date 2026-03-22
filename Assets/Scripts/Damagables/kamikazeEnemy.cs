@@ -37,7 +37,7 @@ public class kamikazeEnemy : Abstr_Damagable
 
     public override void Damage()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
         Debug.Log("kaplow!");
 
     }
