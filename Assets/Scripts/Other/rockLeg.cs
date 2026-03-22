@@ -1,4 +1,6 @@
 using NUnit.Framework.Internal;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class rockLeg : MonoBehaviour
@@ -6,10 +8,18 @@ public class rockLeg : MonoBehaviour
 
     public Rigidbody2D myBody;
     public GameObject Rocket;
-    public float Speed = 15f;
-    public float detectionVal = 10f;
+
+    public float Speed = 5f;
+    public float detectionVal = 12f;
+    public float bufferLaunch = 3f;
+
     private float distanceVector;
+    private float distanceVectorTwo;
+    private float distanceVectorThree;
     private Vector3 startPos;
+    private bool moving = false;
+    private bool launchable;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,35 +27,65 @@ public class rockLeg : MonoBehaviour
         if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
         if (Rocket == null) { Rocket = GameObject.FindGameObjectWithTag("Ship"); }
         startPos = gameObject.transform.position;
+        //moving = false;
+        launchable = true;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        distanceVector = Vector2.Distance(transform.position, Rocket.transform.position);
+
+        //Debug.Log("Moving: " + moving);
+        if (!moving) {
+            Debug.Log("Checking");
+            distanceVector = Vector2.Distance(gameObject.transform.position, Rocket.transform.position);
+        }
 
         if (distanceVector < detectionVal)
         {
+            moving = true;
             Launch(Rocket.transform.position);
         }
 
 
     }
 
+
     void Launch(Vector3 dest)
     {
-        while (transform.position != dest) 
-        {
+
+        //Debug.Log("Launchable: " + launchable);
+        if(launchable) {
+            distanceVectorTwo = Vector2.Distance(transform.position, dest);
+        }
+
+        Debug.Log(distanceVectorTwo);
+
+        if(!distanceVectorTwo.Equals(0) && launchable) {
             transform.position = Vector2.MoveTowards(this.transform.position, dest, Speed * Time.deltaTime);
         }
-        Retract();
+        else
+        {
+            Debug.Log("Reached");
+            launchable = false;
+            Retract();
+        }
+      
     }
 
     void Retract()
     {
-        while (transform.position != startPos)
+        distanceVectorThree = Vector2.Distance(transform.position, startPos);
+        if (!distanceVectorThree.Equals(0) && launchable)
         {
-            transform.position = Vector2.MoveTowards(this.transform.position, startPos, Speed/2 * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, startPos, Speed / 2 * Time.deltaTime);
         }
+        else
+        {
+            //moving = false;
+            launchable = true;
+        }
+
     }
 }
