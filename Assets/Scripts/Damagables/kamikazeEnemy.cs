@@ -3,8 +3,9 @@ using UnityEngine;
 public class kamikazeEnemy : Abstr_Damagable
 {
     public GameObject Rocket;
-    public float Speed;
+    public float Speed = 5f;
     private float distanceVector;
+    public float detectionVal = 20f;
 
     public Rigidbody2D myBody;
 
@@ -26,12 +27,14 @@ public class kamikazeEnemy : Abstr_Damagable
 
         distanceVector = Vector2.Distance(transform.position, Rocket.transform.position);
         Vector2 direction = transform.position - Rocket.transform.position;
+        if(distanceVector < detectionVal) {
+            transform.position = Vector2.MoveTowards(this.transform.position, Rocket.transform.position, Speed * Time.deltaTime);
 
-        transform.position = Vector2.MoveTowards(this.transform.position, Rocket.transform.position, Speed * Time.deltaTime);
-
-        float rotation = Vector2.SignedAngle(gameObject.transform.up, direction);
-        Mathf.Clamp(rotation, -rotSpeed, rotSpeed);
-        myBody.angularVelocity = rotation;
+            float rotation = Vector2.SignedAngle(gameObject.transform.up, direction);
+            Mathf.Clamp(rotation, -rotSpeed, rotSpeed);
+            myBody.angularVelocity = rotation;
+        }
+        
 
     }
 
