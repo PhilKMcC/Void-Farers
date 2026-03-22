@@ -4,8 +4,8 @@ public class kamikazeEnemy : Abstr_Damagable
 {
     public GameObject Rocket;
     public float Speed = 5f;
-    private float distanceVector;
     public float detectionVal = 20f;
+    private float distanceVector;
 
     public Rigidbody2D myBody;
 
