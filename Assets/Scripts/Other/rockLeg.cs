@@ -16,6 +16,7 @@ public class rockLeg : MonoBehaviour
     private float distanceVector;
     private float distanceVectorTwo;
     private float distanceVectorThree;
+    private Vector3 endPos;
     private Vector3 startPos;
     private bool moving = false;
     private bool launchable;
@@ -40,12 +41,13 @@ public class rockLeg : MonoBehaviour
         if (!moving) {
             Debug.Log("Checking");
             distanceVector = Vector2.Distance(gameObject.transform.position, Rocket.transform.position);
+            endPos = Rocket.transform.position;
         }
 
         if (distanceVector < detectionVal)
         {
             moving = true;
-            Launch(Rocket.transform.position);
+            Launch(endPos);
         }
 
 
@@ -77,7 +79,7 @@ public class rockLeg : MonoBehaviour
     void Retract()
     {
         distanceVectorThree = Vector2.Distance(transform.position, startPos);
-        if (!distanceVectorThree.Equals(0) && launchable)
+        if (!distanceVectorThree.Equals(0) && !launchable)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, startPos, Speed / 2 * Time.deltaTime);
         }
