@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2a13484e3f29c4d85f8627369a1ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamagedByTiles: 0
   player: {fileID: 0}
   myBody: {fileID: 5727074433791640048}
   MoveAction:
@@ -168,14 +169,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  acceleration: 3
-  friction: 1
-  maxSpeed: 10
-  rotSpeed: 60
+  acceleration: 10
+  friction: 2
+  maxSpeed: 15
+  rotSpeed: 90
   landingDist: 4
-  camDist: 15
+  camDist: 25
   cameraOffset: {x: 0, y: 0}
   myAnimator: {fileID: 3684773314313724895}
+  exploded: 0
 --- !u!50 &5727074433791640048
 Rigidbody2D:
   serializedVersion: 5
