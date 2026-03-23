@@ -28,7 +28,8 @@ public class rockLeg : MonoBehaviour
         if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
         if (Rocket == null) { Rocket = GameObject.FindGameObjectWithTag("Ship"); }
         startPos = gameObject.transform.position;
-        //moving = false;
+        Debug.Log("Start Leg");
+        moving = false;
         launchable = true;
        
     }
@@ -39,7 +40,7 @@ public class rockLeg : MonoBehaviour
 
         //Debug.Log("Moving: " + moving);
         if (!moving) {
-            Debug.Log("Checking");
+            //Debug.Log("Checking");
             distanceVector = Vector2.Distance(gameObject.transform.position, Rocket.transform.position);
             endPos = Rocket.transform.position;
         }
@@ -62,14 +63,14 @@ public class rockLeg : MonoBehaviour
             distanceVectorTwo = Vector2.Distance(transform.position, dest);
         }
 
-        Debug.Log(distanceVectorTwo);
+        //Debug.Log(distanceVectorTwo);
 
         if(!distanceVectorTwo.Equals(0) && launchable) {
             transform.position = Vector2.MoveTowards(this.transform.position, dest, Speed * Time.deltaTime);
         }
         else
         {
-            Debug.Log("Reached");
+            //Debug.Log("Reached");
             launchable = false;
             Retract();
         }
@@ -85,7 +86,7 @@ public class rockLeg : MonoBehaviour
         }
         else
         {
-            //moving = false;
+            moving = false;
             launchable = true;
         }
 
