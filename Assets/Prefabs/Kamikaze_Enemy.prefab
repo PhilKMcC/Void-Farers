@@ -166,9 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac4d2b590f8a694e8c700c70dec80bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamagedByTiles: 0
+  DamagedByTiles: 1
   Rocket: {fileID: 0}
   Speed: 5
+  detectionVal: 20
   myBody: {fileID: 0}
   rotSpeed: 30
 --- !u!95 &-938296496593936250
