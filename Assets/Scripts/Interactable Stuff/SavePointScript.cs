@@ -50,6 +50,7 @@ public class SavePointScript : Abstr_Interactable
 
     public void loadSavedata()
     {
+        loaded  = true;
         loadPositionData();
         ConditionalInteractor.loadVars();
     }

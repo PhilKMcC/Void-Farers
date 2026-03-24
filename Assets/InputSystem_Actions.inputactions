@@ -513,7 +513,18 @@
                 {
                     "name": "",
                     "id": "2851ebd3-a4b6-489b-86d2-d72c8f67b96a",
-                    "path": "<Keyboard>/anyKey",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ff06ff0-f4ad-4560-b9fc-31628d407725",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",

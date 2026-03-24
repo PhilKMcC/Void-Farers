@@ -12,6 +12,8 @@ public class kamikazeEnemy : Abstr_Damagable
 
     public float rotSpeed = 60f;
 
+    public Animator myAnimator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +21,7 @@ public class kamikazeEnemy : Abstr_Damagable
         initializeSets();
         if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
         if (Rocket == null) { Rocket = GameObject.FindGameObjectWithTag("Ship"); }
+        if (myAnimator == null) { myAnimator = gameObject.GetComponent<Animator>(); }
         undetected = true; 
     }
 
@@ -34,6 +37,7 @@ public class kamikazeEnemy : Abstr_Damagable
             {
                 detectionVal += 15;
                 undetected = false;
+                myAnimator.SetBool("Attacking", true);
             }
 
             transform.position = Vector2.MoveTowards(this.transform.position, Rocket.transform.position, Speed * Time.deltaTime);
@@ -42,7 +46,12 @@ public class kamikazeEnemy : Abstr_Damagable
             Mathf.Clamp(rotation, -rotSpeed, rotSpeed);
             myBody.angularVelocity = rotation;
         }
-        
+        else
+        {
+            myAnimator.SetBool("Attacking",false);
+
+        }
+
 
     }
 

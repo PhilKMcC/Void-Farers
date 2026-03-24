@@ -28,5 +28,6 @@ public class variable_change_on_interact : Abstr_Interactable
         {
             ConditionalInteractor.incVar(variable_to_change, value);
         }
+        Debug.Log("variable updated: " + variable_to_change + " is now " + ConditionalInteractor.vars[variable_to_change]);
     }
 }
