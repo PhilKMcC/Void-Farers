@@ -45,7 +45,7 @@ public class rockArm : MonoBehaviour
         Debug.Log("Start Leg");
         moving = false;
         launchable = true;
-        state = 0;
+        state = 2;
         initializeEndPositions();
        
     }
@@ -93,7 +93,17 @@ public class rockArm : MonoBehaviour
 
    void Release()
    {
-        transform.position = Vector2.MoveTowards(this.transform.position, relEndPos, Speed * Time.deltaTime);
+        distanceVectorTwo = Vector2.Distance(transform.position, relEndPos);
+
+        if(!distanceVectorTwo.Equals(0))
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, relEndPos, Speed * Time.deltaTime);
+        }
+        /*else
+        { 
+            //Timer
+            Retract();
+        }*/
    }
 
     void Launch(Vector3 dest)
