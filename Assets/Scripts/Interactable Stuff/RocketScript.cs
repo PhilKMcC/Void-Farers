@@ -36,6 +36,10 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
 
     public bool exploded = false;
 
+    public GameObject misslePrefab;
+    public float upOffset = 2;
+    public float sideOffset = 1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -94,7 +98,21 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
                 myAnimator.SetBool("firing", false);
             }
         }
+
+        if (AttackAction.WasPressedThisFrame())
+        {
+            Shoot();
+        }
     }
+
+    public void Shoot()
+    {
+        Vector3 ROffset = transform.up * upOffset + transform.right * sideOffset;
+        Vector3 LOffset = transform.up * upOffset + transform.right * sideOffset * -1;
+        Instantiate(misslePrefab, transform.position + ROffset, transform.rotation);
+        Instantiate(misslePrefab, transform.position + LOffset, transform.rotation);
+    }
+
 
     public void enterRocket()
     {

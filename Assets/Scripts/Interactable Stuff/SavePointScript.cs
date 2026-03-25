@@ -22,7 +22,7 @@ public class SavePointScript : Abstr_Interactable
     public Vector3 spawnLocation; // this should be this gameObject's location. if it is zero vector, it will default to this gO's pos. otherwise will go with what written.
     // so don't put one of these at 0,0,0 plz.
     public static Vector3 respawnLocation; //this is where the player respawns if dead. ie, most recent save.
-
+   
 
     public static bool loaded = false;
 
