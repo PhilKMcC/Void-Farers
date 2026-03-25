@@ -35,6 +35,7 @@ public class rockArm : MonoBehaviour
     //4 = Amethyst Toss
     //5 = Amethyst Beam
     //6 = Dying
+    //7 = Resetting
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -75,13 +76,19 @@ public class rockArm : MonoBehaviour
                 }
                 break;
             case 3:
-                Release();
+                moveOut(relEndPos);
                 break;
             case 4:
+                Launch(tossEndPos);
                 break;
             case 5:
+                moveOut(beamEndPos);
                 break;
             case 6:
+                die();
+                break;
+            case 7:
+                Retract(Speed);
                 break;
             default:
                 break;
@@ -91,20 +98,23 @@ public class rockArm : MonoBehaviour
     
     }
 
-   void Release()
+   void moveOut(Vector3 dest)
    {
-        distanceVectorTwo = Vector2.Distance(transform.position, relEndPos);
+        distanceVectorTwo = Vector2.Distance(transform.position, dest);
 
         if(!distanceVectorTwo.Equals(0))
         {
-            transform.position = Vector2.MoveTowards(this.transform.position, relEndPos, Speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, dest, Speed * Time.deltaTime);
         }
-        /*else
-        { 
-            //Timer
-            Retract();
-        }*/
    }
+
+   void die()
+    {
+        myBody.bodyType = RigidbodyType2D.Dynamic;
+        myBody.gravityScale = 1;
+        //Explosion Animation?
+    }
+
 
     void Launch(Vector3 dest)
     {
@@ -123,17 +133,17 @@ public class rockArm : MonoBehaviour
         {
             //Debug.Log("Reached");
             launchable = false;
-            Retract();
+            Retract(Speed/2);
         }
       
     }
 
-    void Retract()
+    void Retract(float retSpeed)
     {
         distanceVectorThree = Vector2.Distance(transform.position, startPos);
         if (!distanceVectorThree.Equals(0) && !launchable)
         {
-            transform.position = Vector2.MoveTowards(this.transform.position, startPos, Speed / 2 * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, startPos, retSpeed * Time.deltaTime);
         }
         else
         {

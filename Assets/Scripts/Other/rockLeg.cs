@@ -20,7 +20,18 @@ public class rockLeg : MonoBehaviour
     private Vector3 startPos;
     private bool moving = false;
     private bool launchable;
-    
+
+    //Need to be accessed by body script
+    public float state;
+    //0 = Asleep
+    //1 = Waiting
+    //2 = Launch Arm
+    //3 = Release Kamikazes
+    //4 = Amethyst Toss
+    //5 = Amethyst Beam
+    //6 = Dying
+    //7 = Resetting
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,6 +42,7 @@ public class rockLeg : MonoBehaviour
         Debug.Log("Start Leg");
         moving = false;
         launchable = true;
+        state = 1;
        
     }
 
@@ -44,16 +56,29 @@ public class rockLeg : MonoBehaviour
             distanceVector = Vector2.Distance(gameObject.transform.position, Rocket.transform.position);
             endPos = Rocket.transform.position;
         }
-
-        if (distanceVector < detectionVal)
-        {
-            moving = true;
-            Launch(endPos);
+        switch (state) {
+            case 0:
+                break;
+            case 6:
+                die();
+                break;
+            default:
+                if (distanceVector < detectionVal)
+                {
+                    moving = true;
+                    Launch(endPos);
+                }
+                break;
         }
 
 
     }
 
+    void die()
+    {
+        myBody.bodyType = RigidbodyType2D.Dynamic;
+        myBody.gravityScale = 1;
+    }
 
     void Launch(Vector3 dest)
     {
