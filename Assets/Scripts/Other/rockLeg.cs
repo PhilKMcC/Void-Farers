@@ -42,7 +42,6 @@ public class rockLeg : MonoBehaviour
         Debug.Log("Start Leg");
         moving = false;
         launchable = true;
-        state = 1;
        
     }
 

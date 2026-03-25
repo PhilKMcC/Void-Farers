@@ -43,10 +43,9 @@ public class rockArm : MonoBehaviour
         if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
         if (Rocket == null) { Rocket = GameObject.FindGameObjectWithTag("Ship"); }
         startPos = gameObject.transform.position;
-        Debug.Log("Start Leg");
+        Debug.Log("Start Arm");
         moving = false;
         launchable = true;
-        state = 2;
         initializeEndPositions();
        
     }
