@@ -9,8 +9,8 @@ public class rockArm : MonoBehaviour
     public Rigidbody2D myBody;
     public GameObject Rocket;
 
-    public float Speed = 5f;
-    public float detectionVal = 12f;
+    public float Speed = 15f;
+    public float detectionVal = 50f;
     public float bufferLaunch = 3f;
     public bool mirror = false;
 
