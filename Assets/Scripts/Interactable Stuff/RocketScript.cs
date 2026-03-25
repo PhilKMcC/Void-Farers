@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Collections;
 
-public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
+public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
 {
     /*
      * Class Explanation:
@@ -32,6 +32,10 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
 
     public Vector2 cameraOffset = Vector2.zero;
 
+    public Animator myAnimator;
+
+    public bool exploded = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,6 +52,7 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         TilesFilter = new ContactFilter2D();
         TilesFilter.SetLayerMask(0b001000000000);
 
+        myAnimator.SetTrigger("Reset");
 
     }
 
@@ -80,7 +85,14 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
             Mathf.Clamp(rotation, -rotSpeed, rotSpeed);
             myBody.angularVelocity = rotation;
 
-
+            if (MoveAction.ReadValue<Vector2>().magnitude > 0.1f)
+            {
+                myAnimator.SetBool("firing", true);
+            }
+            else
+            {
+                myAnimator.SetBool("firing", false);
+            }
         }
     }
 
@@ -93,6 +105,7 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         CameraControl.changeScale(camDist);
         player.transform.position = new Vector3(99999, 99999, 0);//send player very far away
         player.SetActive(false);
+        Debug.Log("diabled player");
     }
 
     public void leaveRocket()
@@ -165,4 +178,24 @@ public class RocketScript : MonoBehaviour, I_Interactable, I_Initializable
         transform.rotation = Quaternion.identity;
     }
 
+    public override void Damage()
+    {
+        //explode
+        myAnimator.SetTrigger("Explode");
+        exploded = true;
+        InputSystem.actions.FindActionMap("Ship").Disable();
+        Debug.Log("left rocket");
+        InputSystem.actions.FindActionMap("Player").Enable();
+        player.SetActive(true);
+        player.transform.position = gameObject.transform.position;
+        CameraControl.changeTarget(player, player.GetComponent<PlayerScript>().cameraOffset);
+        CameraControl.resetScale();
+
+
+    }
+
+    public void OnDestroy()
+    {
+        //respawn the rocket
+    }
 }

@@ -65,7 +65,9 @@ public class ConditionalInteractor : Interactor
         foreach (Interaction interaction in interactions)
         {
             if (vars[interaction.variable] >= interaction.min && vars[interaction.variable] <= interaction.max)
+            {
                 interaction.behaviour.Interact();
+            }
         }
     }
 
@@ -93,6 +95,7 @@ public class ConditionalInteractor : Interactor
         if (vars == null) { vars = new Dictionary<string, int>(); }
         string path = Application.persistentDataPath + savefileLocationVars;
         //Write some text to the test.txt file
+        /*
         StreamWriter writer = new StreamWriter(path, false);
         //writer.WriteLine("Test");
         foreach (string s in vars.Keys)
@@ -103,6 +106,8 @@ public class ConditionalInteractor : Interactor
             writer.WriteLine(s + "," + (vars[s]));
         }
         writer.Close();
+        */
+        saveVars();
 
         //Print the text from the file for verification
         StreamReader reader = new StreamReader(path);

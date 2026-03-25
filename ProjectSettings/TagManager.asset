@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Dialogue
   - Ship
+  - Friendly
+  - Enemy
+  - Nuetral
+  - Boss
   layers:
   - Default
   - TransparentFX

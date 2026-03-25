@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,6 +16,7 @@ public class CameraControl : MonoBehaviour
     public Vector3 offset;
     private float defaultDist = 10; //the distance away from the 2d region this is. negative to the z coord.
     public static CameraControl camControl;
+    public TextMeshProUGUI coordsText;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,6 +40,7 @@ public class CameraControl : MonoBehaviour
     void Update()
     {
         gameObject.transform.position = new Vector3(target.transform.position.x + offset.x, target.transform.position.y + offset.y,gameObject.transform.position.z);
+        coordsText.text = "(" + transform.position.x.ToString("n3") + "," + transform.position.y.ToString("n3") + ")";
     }
 
     private void changeTargetlocal(GameObject targetp, Vector3 offsetp)
