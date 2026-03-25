@@ -22,7 +22,7 @@ public class SavePointScript : Abstr_Interactable
     public Vector3 spawnLocation; // this should be this gameObject's location. if it is zero vector, it will default to this gO's pos. otherwise will go with what written.
     // so don't put one of these at 0,0,0 plz.
     public static Vector3 respawnLocation; //this is where the player respawns if dead. ie, most recent save.
-   
+    public Vector3 rocketOffset = new Vector3(-4,1,0); //the offset of the rocket relative to the respawn location.
 
     public static bool loaded = false;
 
@@ -108,6 +108,7 @@ public class SavePointScript : Abstr_Interactable
         {
             resetPositionData();
         }
+        SummonRocket();
     }
 
     public void savePositionData()
@@ -144,6 +145,17 @@ public class SavePointScript : Abstr_Interactable
             respawnLocation = spawnLocation;
         }
         saveSavedata();
+        SummonRocket();
+    }
+
+    public void SummonRocket()
+    {
+        //if far enough away, summon it.
+        GameObject rocket = GameObject.FindGameObjectWithTag("Ship");
+        if (Vector3.Distance(rocket.transform.position, gameObject.transform.position) > 5)
+        {
+            rocket.transform.position = respawnLocation + rocketOffset;
+        }
     }
 
     
