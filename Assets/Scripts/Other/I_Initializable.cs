@@ -20,6 +20,8 @@ public interface I_Initializable
         {
             initial.init();
         }
+
+        initials.Clear();
     
     }
 }

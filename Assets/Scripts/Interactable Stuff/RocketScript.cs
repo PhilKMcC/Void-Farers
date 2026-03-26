@@ -40,6 +40,8 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
     public float upOffset = 2;
     public float sideOffset = 1;
 
+    public GameObject deathScreen; //pass this over to death
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -194,6 +196,8 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
     {
         InputSystem.actions.FindActionMap("Ship").Disable();
         transform.rotation = Quaternion.identity;
+        Death.deathCanvas = deathScreen;
+
     }
 
     public override void Damage()
@@ -202,12 +206,14 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         myAnimator.SetTrigger("Explode");
         exploded = true;
         InputSystem.actions.FindActionMap("Ship").Disable();
-        Debug.Log("left rocket");
-        InputSystem.actions.FindActionMap("Player").Enable();
-        player.SetActive(true);
-        player.transform.position = gameObject.transform.position;
-        CameraControl.changeTarget(player, player.GetComponent<PlayerScript>().cameraOffset);
-        CameraControl.resetScale();
+        Debug.Log("dead rocket");
+        //InputSystem.actions.FindActionMap("Player").Enable();
+        //player.SetActive(true);
+        //player.transform.position = gameObject.transform.position;
+        //CameraControl.changeTarget(player, player.GetComponent<PlayerScript>().cameraOffset);
+        //CameraControl.resetScale();
+
+        Death.Die();
 
 
     }

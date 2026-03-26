@@ -120,6 +120,7 @@ public class PlayerScript : Abstr_Damagable
     {
         alive = false;
         actions.Disable();
+        Death.Die();
     }
 
 }
