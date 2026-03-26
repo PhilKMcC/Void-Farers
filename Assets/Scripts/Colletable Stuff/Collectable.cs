@@ -37,12 +37,17 @@ public abstract class Collectable : MonoBehaviour
         {
             Collectables = new Dictionary<int, Collectable>();
             Collectable[] allcollected = GameObject.FindObjectsByType<Collectable>(FindObjectsSortMode.None);
+
             foreach (Collectable collectable in allcollected) 
             {
                 Collectables[collectable.ID] = collectable;
             }
             loadCollection();
             saveCollection();
+
+
+            
+
         }
         if (Collectables[ID] != this)
         {
@@ -119,6 +124,13 @@ public abstract class Collectable : MonoBehaviour
         StreamReader reader = new StreamReader(path);
         Debug.Log(reader.ReadToEnd());
         reader.Close();
+
+
+        InvertCollectable[] allInvCollected = GameObject.FindObjectsByType<InvertCollectable>(FindObjectsSortMode.None);
+        foreach (InvertCollectable invertCollectable in allInvCollected)
+        {
+            invertCollectable.CheckInvCollected();
+        }
     }
 
     [MenuItem("myMenu/deleteCollectionData")]

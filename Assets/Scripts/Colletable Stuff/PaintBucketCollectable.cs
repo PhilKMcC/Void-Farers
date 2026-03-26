@@ -13,6 +13,9 @@ public class PaintBucketCollectable : Collectable
      * and it is saved, via the collectables script
      * Note for testing purposes, this does save even in the editor, so if you need to reset the collectables so you can get them again, go to the editor and go to myMenu/deleteCollection
      */
+
+    //collectable index 100-199.
+
     public Color paintColor = Color.white;
     public SpriteRenderer paintRenderer; //note, this is the renderer for the PAINT, not the BUCKET.
     

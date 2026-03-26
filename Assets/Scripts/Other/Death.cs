@@ -37,6 +37,9 @@ public class Death : MonoBehaviour
         {
             yield return null;
         }
+
+        Collectable.Collectables = null;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         
 
