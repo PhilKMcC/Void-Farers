@@ -123,10 +123,14 @@ public class rockArm : MonoBehaviour
             distanceVectorTwo = Vector2.Distance(transform.position, dest);
         }
 
-        //Debug.Log(distanceVectorTwo);
-
         if(!distanceVectorTwo.Equals(0) && launchable) {
-            transform.position = Vector2.MoveTowards(this.transform.position, dest, Speed * Time.deltaTime);
+            if ((mirror && (startPos.x-10) <= dest.x) || (!mirror && (startPos.x+10) >= dest.x))
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, dest, Speed * Time.deltaTime);
+            }
+            else {
+                moving = false;
+            }
         }
         else
         {
