@@ -68,6 +68,11 @@ public class PlayerScript : Abstr_Damagable
         {
             StartCoroutine(Moonwalk());
         }
+
+        if (InputSystem.actions.FindAction("Player/SelfDestruct").WasPressedThisFrame())
+        {
+            Damage();
+        }
     }
 
     IEnumerator Moonwalk()

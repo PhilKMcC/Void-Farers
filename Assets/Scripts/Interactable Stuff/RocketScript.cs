@@ -105,6 +105,10 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         {
             Shoot();
         }
+        if (InputSystem.actions.FindAction("Ship/SelfDestruct").WasPressedThisFrame())
+        {
+            Damage();
+        }
     }
 
     public void Shoot()
