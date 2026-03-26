@@ -4,8 +4,7 @@ public class golemCrystal : Abstr_Damagable
 {
     /* 
      * Class Explanation:
-     * basic asteroid. explodes when hit
-     * need at least one in the scene for the collisions to work properly, since we need something to initialize them
+     * the crystal in the body of the golem
      */
 
     public float healthTotal = 3f;
@@ -15,7 +14,7 @@ public class golemCrystal : Abstr_Damagable
     {
         health = 3f;
         myTag = gameObject.tag;
-        initializeSets();
+        //initializeSets();
     }
 
     void Update()
@@ -32,7 +31,7 @@ public class golemCrystal : Abstr_Damagable
         }
     }
 
-    public override void Die()
+    public  void Die()
     {
         //Death animation
         //Set state to 6
@@ -43,9 +42,9 @@ public class golemCrystal : Abstr_Damagable
     }
 
     //Activate upon player death
-    public override void Heal()
+    public  void Heal()
     {
-        health = heathTotal;
+        health = healthTotal;
     }
 
 }
