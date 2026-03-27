@@ -25,11 +25,11 @@ public class MoveInteractable : Abstr_Interactable
             objectToMove = gameObject;
         }
 
-        Vector3 start = transform.position;
+        Vector3 start = objectToMove.transform.position;
         float dist = move.magnitude;
 
-        while (dist > (transform.position - start).magnitude){
-            transform.position += move.normalized * moveSpeed * Time.deltaTime;
+        while (dist > (objectToMove.transform.position - start).magnitude){
+            objectToMove.transform.position += move.normalized * moveSpeed * Time.deltaTime;
             yield return null;
         }
 
