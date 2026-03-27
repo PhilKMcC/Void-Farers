@@ -311,10 +311,10 @@ MonoBehaviour:
   DamagedByTiles: 1
   Rocket: {fileID: 0}
   Speed: 5
-  detectionVal: 20
+  detectionVal: 30
   myBody: {fileID: 0}
   rotSpeed: 45
   myAnimator: {fileID: 0}
   enemmisslePrefab: {fileID: 4058955512683625892, guid: c212a6a5abd5f274c852aa6d8f51732f, type: 3}
-  upOffset: 2
+  upOffset: -2
   sideOffset: 0

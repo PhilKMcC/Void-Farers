@@ -4,7 +4,7 @@ public class shootingEnemy : Abstr_Damagable
 {
     public GameObject Rocket;
     public float Speed = 5f;
-    public float detectionVal = 20f;
+    public float detectionVal = 30f;
     private float distanceVector;
     private bool undetected;
 
@@ -15,7 +15,7 @@ public class shootingEnemy : Abstr_Damagable
     public Animator myAnimator;
 
     public GameObject enemmisslePrefab;
-    public float upOffset = 3;
+    public float upOffset = -2;
     public float sideOffset = 0;
     private float frameCounter = 0;
 
@@ -37,7 +37,7 @@ public class shootingEnemy : Abstr_Damagable
 
         distanceVector = Vector2.Distance(transform.position, Rocket.transform.position);
         Vector2 direction = transform.position - Rocket.transform.position;
-        if(distanceVector < detectionVal) {
+        if(distanceVector+5 < detectionVal) {
             if(undetected)
             {
                 detectionVal += 15;
@@ -57,7 +57,7 @@ public class shootingEnemy : Abstr_Damagable
             myAnimator.SetBool("Attacking",false);
 
         }
-        if(frameCounter < 30)
+        if(frameCounter < 60)
         {
             frameCounter++;
         }
@@ -73,6 +73,7 @@ public class shootingEnemy : Abstr_Damagable
     {
         if (frameCounter == 1)
         {
+            Debug.Log("Shot");
             Vector3 Offset = transform.up * upOffset + transform.right * sideOffset;
             Instantiate(enemmisslePrefab, transform.position + Offset, transform.rotation);
         }
