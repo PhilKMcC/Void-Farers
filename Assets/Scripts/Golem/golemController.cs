@@ -4,6 +4,7 @@ public class golemController : abstrGolem
 {
 
     private int frameCounter;
+    public Beam beamSpin;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +24,10 @@ public class golemController : abstrGolem
 
             }
             state = Random.Range(1, 6);
+        }
+        if(state == 5 && !wait)
+        {
+            beamSpin.StartBeamAttack();
         }
     }
 }

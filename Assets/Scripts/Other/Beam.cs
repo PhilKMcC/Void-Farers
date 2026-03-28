@@ -54,6 +54,8 @@ public class Beam : abstrGolem
 
         }
         damaging = false;
+        wait = true;
+        state = 7;
     }
 
     void StartBeams()
