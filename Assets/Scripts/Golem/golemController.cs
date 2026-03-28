@@ -32,4 +32,9 @@ public class golemController : abstrGolem
             beamSpin.StartBeamAttack(5);
         }
     }
+
+    public static void SpawnGolem()
+    {
+        state = 1;
+    }
 }
