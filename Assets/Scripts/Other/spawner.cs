@@ -45,13 +45,21 @@ public class spawner : MonoBehaviour
     {
         //Xmin, Xmax, Ymin, Ymax
         exclusionZones = new HashSet<float[]>();
-        exclusionZones.Add([-78, -25, 70, -3]);
-        exclusionZones.Add([-265, -234, 36, 67]);
-        exclusionZones.Add([-475, -383, 274, 315]);
-        exclusionZones.Add([-494, -422, -257, -195]);
-        exclusionZones.Add([-170, -43, -285, -214]);
-        exclusionZones.Add([140, 239, -80, -47]);
-        exclusionZones.Add([97, 109, 123, 134]);
-        exclusionZones.Add([170, 247, 180, 257]);
+        float[] spawn = {-78, -25, 70, -3};
+        exclusionZones.Add(spawn);
+        float[] triangleDemo = {-265, -234, 36, 67};
+        exclusionZones.Add(triangleDemo);
+        float[] errZone = {-475, -383, 274, 315};
+        exclusionZones.Add(errZone);
+        float[] snowZone = {-494, -422, -257, -195};
+        exclusionZones.Add(snowZone);
+        float[] bossZone = {-170, -43, -285, -214};
+        exclusionZones.Add(bossZone);
+        float[] desertZone = {-140, 239, -80, -47};
+        exclusionZones.Add(desertZone);
+        float[] house = {97, 109, 123, 134};
+        exclusionZones.Add(house);
+        float[] triangleZone = {170, 247, 180, 257};
+        exclusionZones.Add(triangleZone);
     }
 }
