@@ -25,7 +25,7 @@ public class Beam : abstrGolem
     // Update is called once per frame
     void Update()
     {
-        if(state == )
+        if(state == 5 && !wait) {
         timer -= Time.deltaTime;
         Rotate();
         if (!damaging && timer <= startDamaging)
