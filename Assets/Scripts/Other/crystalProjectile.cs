@@ -6,13 +6,14 @@ public class crystalProjectile : MonoBehaviour
     public Rigidbody2D myBody;
     private float timer = 3;
     private float randModifier;
+    public float minRotation = 45f;
     public float maxRotation = 91f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         randModifier = Random.Range(50, 200) / 100;
         if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
-        transform.rotation = Quaternion.Euler(Vector3.forward * Random.Range(45, maxRotation));
+        transform.rotation = Quaternion.Euler(Vector3.forward * Random.Range(minRotation, maxRotation));
         myBody.linearVelocity = transform.up * speed * randModifier;
     }
 
