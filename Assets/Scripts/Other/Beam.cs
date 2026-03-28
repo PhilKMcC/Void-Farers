@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Beam : MonoBehaviour
+public class Beam : abstrGolem
 {
 
 
@@ -25,6 +25,7 @@ public class Beam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(state == )
         timer -= Time.deltaTime;
         Rotate();
         if (!damaging && timer <= startDamaging)
