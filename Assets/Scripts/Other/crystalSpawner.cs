@@ -36,6 +36,8 @@ public class crystalSpawner : MonoBehaviour
             {
                 StartCoroutine(Spawn(1/100));
             }
+            state = 1;
+            wait = true;
         }
     }
     private IEnumerator Spawn(float timer)
