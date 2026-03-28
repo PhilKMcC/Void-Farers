@@ -3,56 +3,82 @@ using UnityEngine;
 
 public class Beam : MonoBehaviour
 {
-    public float xdirection = 0f;
-    public float ydirection = 0f;
 
-    public BoxCollider2D myCollider;
-    public Rigidbody2D myBody;
-    public SpriteRenderer mySprite;
 
-    private RaycastHit2D endPoint1;
-    private RaycastHit2D endPoint2;
+    public GameObject[] beams;
+    public Sprite startingSprite;
+    public Sprite damagingSprite;
 
-    private Boolean extended;
+
+    public float rotateSpeed = 20;
+
+    public bool damaging;
+    public float timer;
+    public float startDamaging;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
-        if (myCollider == null) { myCollider = gameObject.GetComponent<BoxCollider2D>(); }
-        if (mySprite == null) { mySprite = gameObject.GetComponent<SpriteRenderer>(); }
-        endPoint1 = Physics2D.Raycast(transform.position, transform.TransformDirection(xdirection, ydirection, 0));
-        endPoint2 = Physics2D.Raycast(transform.position, transform.TransformDirection(-xdirection, -ydirection, 0));
-        extended = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!extended)
+        timer -= Time.deltaTime;
+        Rotate();
+        if (!damaging && timer <= startDamaging)
         {
-            Extend();
+            MakeDamaging();
         }
-        else
+        if (timer <= 0)
         {
-            Rotate();
+            EndBeams();
         }
     }
 
     void Rotate()
     {
-
+        foreach (GameObject beam in beams)
+        {
+            beam.transform.Rotate(new Vector3(0, 0, rotateSpeed * Time.deltaTime));
+        }
     }
 
-    void Extend()
+    void EndBeams()
     {
-        /*if()
+        foreach (GameObject beam in beams)
         {
+            beam.GetComponent<Collider2D>().enabled = false;
+            beam.SetActive(false);
 
         }
-        else
-        {
-            extended = true;
-        }*/
+        damaging = false;
     }
+
+    void StartBeams()
+    {
+        foreach (GameObject beam in beams)
+        {
+            beam.SetActive(true);
+        }
+    }
+
+    void MakeDamaging()
+    {
+        foreach (GameObject beam in beams)
+        {
+            beam.GetComponent<Collider2D>().enabled = true;
+        }
+        damaging = true;
+
+    }
+
+    public void StartBeamAttack(float duration)
+    {
+        timer = duration;
+        startDamaging = 2 * (duration / 3);
+        StartBeams();
+    }
+
 }
