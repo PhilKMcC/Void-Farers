@@ -5,11 +5,12 @@ public class golemController : abstrGolem
 
     private int frameCounter;
     public Beam beamSpin;
+    private float timer = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        state = 0;
+        state = 1;
         wait = true;
     }
 
@@ -19,11 +20,12 @@ public class golemController : abstrGolem
         //If awoken, set state to 1
         if(state == 1)
         {
-            for(frameCounter = 0; frameCounter < 60; frameCounter++)
+            timer -= Time.deltaTime;
+            if (timer <= 0)
             {
-
+                state = Random.Range(1, 6);
+                Debug.Log(state);
             }
-            state = Random.Range(1, 6);
         }
         if(state == 5 && !wait)
         {
