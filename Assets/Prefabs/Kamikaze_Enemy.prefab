@@ -288,10 +288,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamagedByTiles: 1
   Rocket: {fileID: 0}
-  Speed: 5
+  Speed: 10
   detectionVal: 20
   myBody: {fileID: 0}
-  rotSpeed: 30
+  rotSpeed: 60
   myAnimator: {fileID: 0}
 --- !u!95 &-938296496593936250
 Animator:
