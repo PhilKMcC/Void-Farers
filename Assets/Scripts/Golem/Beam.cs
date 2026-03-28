@@ -25,19 +25,22 @@ public class Beam : abstrGolem
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        Rotate();
-        if (!damaging && timer <= startDamaging)
+        if (state == 5 && !wait)
         {
-            MakeDamaging();
-        }
-        if (timer <= 0)
-        {
-            EndBeams();
+            timer -= Time.deltaTime;
+            Rotate();
+            if (!damaging && timer <= startDamaging)
+            {
+                MakeDamaging();
+            }
+            if (timer <= 0)
+            {
+                EndBeams();
+            }
         }
     }
 
-    void Rotate()
+        void Rotate()
     {
         foreach (GameObject beam in beams)
         {

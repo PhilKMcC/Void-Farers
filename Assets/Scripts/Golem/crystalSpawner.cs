@@ -17,6 +17,7 @@ public class crystalSpawner : abstrGolem
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(state); -> always 1
         switch(state)
         {
             case 4:
@@ -35,6 +36,7 @@ public class crystalSpawner : abstrGolem
             {
                 StartCoroutine(Spawn(1/100));
             }
+            Debug.Log("State 7 crystals");
             state = 7;
             wait = true;
         }

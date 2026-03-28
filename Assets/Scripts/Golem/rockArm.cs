@@ -60,7 +60,7 @@ public class rockArm : abstrGolem
             distanceVector = Vector2.Distance(gameObject.transform.position, Rocket.transform.position);
             endPos = Rocket.transform.position;
         }
-
+        //Debug.Log(state); --> 1 and 7
         switch(state)
         {
             case 0:
@@ -154,6 +154,7 @@ public class rockArm : abstrGolem
             moving = false;
             launchable = true;
         }
+        Debug.Log("Retracting State 1");
         state = 1;
 
     }
