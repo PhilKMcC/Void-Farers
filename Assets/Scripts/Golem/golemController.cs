@@ -27,7 +27,7 @@ public class golemController : abstrGolem
         }
         if(state == 5 && !wait)
         {
-            beamSpin.StartBeamAttack();
+            beamSpin.StartBeamAttack(5);
         }
     }
 }
