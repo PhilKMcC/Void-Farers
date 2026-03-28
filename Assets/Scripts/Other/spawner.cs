@@ -101,7 +101,7 @@ public class spawner : MonoBehaviour
 
     }
     
-    public Boolean checkExclusionZones(float x, float y)
+    public bool checkExclusionZones(float x, float y)
     {
         int i;
         for(i = 0; i < exclusionNum; i++)

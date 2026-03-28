@@ -172,7 +172,7 @@ MonoBehaviour:
   acceleration: 10
   friction: 2
   maxSpeed: 15
-  rotSpeed: 90
+  rotSpeed: 120
   landingDist: 4
   camDist: 25
   cameraOffset: {x: 0, y: 0}
@@ -181,6 +181,7 @@ MonoBehaviour:
   misslePrefab: {fileID: 4058955512683625892, guid: 0482b619d4cdd0546878b238da7366d4, type: 3}
   upOffset: 2
   sideOffset: 1
+  deathScreen: {fileID: 0}
 --- !u!50 &5727074433791640048
 Rigidbody2D:
   serializedVersion: 5

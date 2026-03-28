@@ -158,7 +158,7 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         //first rotate to be vertical
         myBody.angularVelocity = 0;
         myBody.linearVelocity = Vector2.zero;
-        float closeEnough = 1;
+        float closeEnough = 2;
         while (Vector2.Angle(gameObject.transform.up, Vector2.up) > closeEnough)
         {
             float rotation = Vector2.SignedAngle(gameObject.transform.up, Vector2.up);
