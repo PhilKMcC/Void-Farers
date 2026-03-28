@@ -3,7 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class rockArm : MonoBehaviour, abstrGolem
+public class rockArm : abstrGolem
 {
 
     public Rigidbody2D myBody;
