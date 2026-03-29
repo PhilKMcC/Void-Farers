@@ -38,6 +38,7 @@ public class kamikazeSpawn : abstrGolem
     {
         if (!wait)
         {
+            Debug.Log(wait);
             if (!spawned)
             {
                 StartCoroutine(Spawn(1 / 100, 7.5f, 0));
