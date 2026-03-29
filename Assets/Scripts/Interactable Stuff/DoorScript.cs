@@ -13,7 +13,7 @@ public class DoorScript : Abstr_Interactable
     public Collider2D myCollider;
     public Sprite closedSprite;
     public Sprite openSprite;
-    private bool open = false;
+    public bool open = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

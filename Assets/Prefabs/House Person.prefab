@@ -1,0 +1,382 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1679573224092209375
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_Name
+      value: House Person
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 103
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 124.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013630280565849632, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: text.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'text.Array.data[0]'
+      value: This is a test of the conditional dialogue.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'text.Array.data[1]'
+      value: This text is playing on first interaction...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'text.Array.data[2]'
+      value: try interacting a second time! also, try saving!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: RightSpeaker.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: textMetadata.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      propertyPath: 'textMetadata.Array.data[2]'
+      value: L,0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7611338143341447516, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+    - {fileID: 1890352264718328010, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4000317315542630954}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6122633175408007583}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4487767747663103757}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3082087023701564087}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 491704557413420808}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1440865417205353628}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1188169079505636723}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7586369575262522422}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5590617674342228787}
+    - targetCorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2470197804440282258}
+  m_SourcePrefab: {fileID: 100100000, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+--- !u!1 &3416895213015872047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4045440714485342960, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+  m_PrefabInstance: {fileID: 1679573224092209375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3479948852026094214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2811453404634489433, guid: 19237d723215ddf44bc643dd4ccb75b6, type: 3}
+  m_PrefabInstance: {fileID: 1679573224092209375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4000317315542630954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479948852026094214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c22ba8e79ebf3459b401a87d377837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d0ead374-b032-4534-8868-56658de5e56a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  interactDistance: 3
+  indicatorObject: {fileID: 3416895213015872047}
+  interactions:
+  - behaviour: {fileID: 6122633175408007583}
+    variable: talkedWithPersonInHouse
+    min: 0
+    max: 0
+  - behaviour: {fileID: 2470197804440282258}
+    variable: talkedWithPersonInHouse
+    min: 1
+    max: 1
+--- !u!114 &6122633175408007583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479948852026094214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfdaf481c1f20c747b3e711d5e7354a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactables:
+  - {fileID: 4487767747663103757}
+  - {fileID: 3082087023701564087}
+  - {fileID: 491704557413420808}
+  - {fileID: 1440865417205353628}
+  FreezePlayer: 1
+--- !u!114 &4487767747663103757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479948852026094214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909777d3d72753a4e90fb8ee3331f995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftSpeaker:
+  - {fileID: 1028370226, guid: 954a5168c9e339142be33458ba765729, type: 3}
+  RightSpeaker:
+  - {fileID: 7346647256224613308, guid: 60a07cc2ecd17e94e9043714da41d6d8, type: 3}
+  - {fileID: -4514844369508590888, guid: 60a07cc2ecd17e94e9043714da41d6d8, type: 3}
+  text:
+  - Hello!
+  - Huh? What?
+  - Hi! I was flying by when I saw your crystal. May I have it?
+  - What? outside? what do you mean??
+  - 'Y''know. outside. not space, technically, more ... void? i guess. '
+  - Theres like whole worlds out here.
+  - What?
+  - Worlds?
+  - This is all there is.
+  - Just me, and my house.
+  - And then you just ... appear? how did you just appear here?
+  - Oh, I just no-clipped in by moving backwards.
+  - I... do not understand...
+  - So anyways, can I have your crystal?
+  - 'I... '
+  - I'll take that as a yes. Thank you!
+  textMetadata:
+  - L,0
+  - R,0
+  - L,0
+  - R,0
+  - L,0
+  - L,0
+  - R,0
+  - R,0
+  - R,0
+  - R,0
+  - R,0
+  - L,0
+  - R,0
+  - L,0
+  - R,0
+  - L,0
+--- !u!114 &3082087023701564087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479948852026094214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafa893d28e82aa418ec84f45d8c0067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable_to_change: talkedWithPersonInHouse
+  mode: 1
+  value: 1
+--- !u!114 &491704557413420808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479948852026094214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06cabbf023169e14faf85f9591509749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRenderer: {fileID: 0}
+  myCollider: {fileID: 0}
+  closedSprite: {fileID: 7479642271789056252, guid: 93a774b41bf66504a89efa3fc8555101, type: 3}
+  openSprite: {fileID: 7479642271789056252, guid: 93a774b41bf66504a89efa3fc8555101, type: 3}
+  open: 1
+--- !u!114 &1440865417205353628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479948852026094214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8134c4b1489cfbd42bdceedb95ad5a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move: {x: 0, y: 0, z: -1}
+  moveSpeed: 3
+  objectToMove: {fileID: 0}
+--- !u!50 &1188169079505636723
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479948852026094214}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &7586369575262522422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479948852026094214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36afd7f8d072b224a91ac37a43dadf70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myBody: {fileID: 1188169079505636723}
+  myAnimator: {fileID: 0}
+  isWalking: 0
+  facing: 0
+  timeTilNext: 0
+  aboutTimeBetween: 3
+  moveSpeed: 1
+  maxDist: 3
+--- !u!58 &5590617674342228787
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479948852026094214}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!114 &2470197804440282258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479948852026094214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909777d3d72753a4e90fb8ee3331f995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftSpeaker:
+  - {fileID: 1028370226, guid: 954a5168c9e339142be33458ba765729, type: 3}
+  RightSpeaker:
+  - {fileID: -4514844369508590888, guid: 60a07cc2ecd17e94e9043714da41d6d8, type: 3}
+  text:
+  - Hello!
+  - Please... just leave.
+  textMetadata:
+  - L,0
+  - R,0

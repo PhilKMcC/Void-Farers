@@ -17,6 +17,8 @@ public class CameraControl : MonoBehaviour
     private float defaultDist = 10; //the distance away from the 2d region this is. negative to the z coord.
     public static CameraControl camControl;
     public TextMeshProUGUI coordsText;
+    public bool BossSpawned;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -62,12 +64,20 @@ public class CameraControl : MonoBehaviour
         camControl.changeTargetlocal(targetp, offsetNew);
     }
 
-
+    public static void spawnBoss(float scale)
+    {
+        camControl.StopAllCoroutines(); //caution if have multiple diff coroutines
+        camControl.StartCoroutine(camControl.gradualScale(scale));
+        camControl.BossSpawned = true;
+    }
     
     public static void changeScale(float scale)
     {
-        camControl.StopAllCoroutines(); //caution if have multiple diff coroutines
-        camControl.StartCoroutine(camControl.gradualScale( scale));
+        if (!camControl.BossSpawned)
+        {
+            camControl.StopAllCoroutines(); //caution if have multiple diff coroutines
+            camControl.StartCoroutine(camControl.gradualScale(scale));
+        }
     }
     public static void resetScale()
     {
