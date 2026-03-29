@@ -37,6 +37,7 @@ public class spawner : MonoBehaviour
 
     private IEnumerator spawn(float timer, GameObject toSpawn)
     {
+        yield return new WaitForSeconds(timer * (UnityEngine.Random.Range(1, 300) / 100));
         //Set xVal and yVal to randomRange outside of camera bounds
         int section = UnityEngine.Random.Range(0, 8);
         float xVal = 0;
@@ -79,7 +80,6 @@ public class spawner : MonoBehaviour
         //Search exclusion zones to see if both xval and yval are not within the bounds of each part of the set
         if (checkExclusionZones(xVal, yVal))
         {
-            yield return new WaitForSeconds(timer * (UnityEngine.Random.Range(1, 300) / 100));
             GameObject spawned = Instantiate(toSpawn, new Vector3(xVal, yVal, 0), Quaternion.identity);
         }
         StartCoroutine(spawn(timer, toSpawn));
