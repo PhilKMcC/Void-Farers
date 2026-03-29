@@ -6,13 +6,14 @@ public class golemCore : abstrGolem
     public Sprite closed;
     public Sprite open;
     public SpriteRenderer mySprite;
-    public Collider2D fullCollider;
+    public Collider2D myCollider;
     public float timer = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
         if (mySprite == null) { mySprite = gameObject.GetComponent<SpriteRenderer>(); }
+        if (myCollider == null) { myCollider = gameObject.GetComponent<Collider2D>(); }
     }
 
     // Update is called once per frame
@@ -45,13 +46,13 @@ public class golemCore : abstrGolem
     
     void setClosed()
     {
-        fullCollider.enabled = true;
+        myCollider.enabled = true;
         mySprite.sprite = closed;
         mySprite.sortingOrder = -3;
     }
     void setOpen()
     {
-        fullCollider.enabled = false;
+        myCollider.enabled = false;
         mySprite.sprite = open;
         mySprite.sortingOrder = -1;
     }
