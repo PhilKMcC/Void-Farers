@@ -36,7 +36,6 @@ public class Beam : abstrGolem
             Rotate();
             if (!damaging && timer <= startDamaging)
             {
-                Debug.Log("Damaging");
                 MakeDamaging();
             }
             if (timer <= 0)
