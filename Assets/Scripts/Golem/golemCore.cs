@@ -7,7 +7,7 @@ public class golemCore : abstrGolem
     public Sprite open;
     public SpriteRenderer mySprite;
     public Collider2D myCollider;
-    public float timer = 1;
+    public float timer = 3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,7 +35,7 @@ public class golemCore : abstrGolem
                 if (timer <= 0)
                 {
                     setClosed();
-                    timer = 1;
+                    timer = 3;
                 }
                 break;
             default:
