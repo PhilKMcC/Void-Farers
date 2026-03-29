@@ -27,6 +27,10 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
             placedIDs = new List<int>();
             loadCrystals();
         }
+        if (placedIDs.Contains(ID))
+        {
+            SoftPlaceCrystal();
+        }
         myRenderer.enabled = false;
         Debug.Log("disabled rederer");
     }
@@ -53,6 +57,15 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
         {
             CrystalsPlaced++;
             saveCrystals();
+        }
+    }
+
+    public void SoftPlaceCrystal()
+    {
+        myRenderer.enabled = true;
+        if (CrystalsPlaced < MaxCrystals - 1)
+        {
+            CrystalsPlaced++;
         }
     }
     

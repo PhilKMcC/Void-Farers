@@ -23,6 +23,7 @@ public class Beam : abstrGolem
         {
             beam.GetComponent<Collider2D>().enabled = false;
             beam.SetActive(false);
+            beam.GetComponent<SpriteRenderer>().sprite = startingSprite;
 
         }
     }
@@ -70,6 +71,8 @@ public class Beam : abstrGolem
         {
             beam.GetComponent<Collider2D>().enabled = false;
             beam.SetActive(false);
+            beam.GetComponent<SpriteRenderer>().sprite = startingSprite;
+
 
         }
         damaging = false;
@@ -94,6 +97,8 @@ public class Beam : abstrGolem
         foreach (GameObject beam in beams)
         {
             beam.GetComponent<Collider2D>().enabled = true;
+            beam.GetComponent<SpriteRenderer>().sprite = damagingSprite;
+
         }
         damaging = true;
 
