@@ -50,6 +50,7 @@ public class kamikazeSpawn : abstrGolem
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
+                Debug.Log("Set to State 7");
                 state = 7;
                 wait = true;
             }

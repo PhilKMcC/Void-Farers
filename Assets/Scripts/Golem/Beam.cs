@@ -36,6 +36,7 @@ public class Beam : abstrGolem
             Rotate();
             if (!damaging && timer <= startDamaging)
             {
+                Debug.Log("Damaging");
                 MakeDamaging();
             }
             if (timer <= 0)
@@ -63,7 +64,7 @@ public class Beam : abstrGolem
         }
         damaging = false;
         wait = true;
-        //Debug.Log("State to 7");
+        Debug.Log("State to 7");
         state = 7;
     }
 

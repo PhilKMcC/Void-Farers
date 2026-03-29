@@ -101,11 +101,14 @@ public class rockArm : abstrGolem
    {
         distanceVectorTwo = Vector2.Distance(transform.position, dest);
 
-        if(!distanceVectorTwo.Equals(0))
+        if (!distanceVectorTwo.Equals(0))
         {
             transform.position = Vector2.MoveTowards(this.transform.position, dest, Speed * Time.deltaTime);
         }
-        wait = false;
+        else
+        {
+            wait = false;
+        }
    }
 
    void die()
@@ -137,7 +140,8 @@ public class rockArm : abstrGolem
         {
             //Debug.Log("Reached");
             launchable = false;
-            Retract(Speed/2);
+            //Retract(Speed/2);
+            state = 7;
         }
       
     }
@@ -145,7 +149,7 @@ public class rockArm : abstrGolem
     void Retract(float retSpeed)
     {
         distanceVectorThree = Vector2.Distance(transform.position, startPos);
-        Debug.Log(distanceVectorThree);
+        //Debug.Log(distanceVectorThree);
         if (!distanceVectorThree.Equals(0) && !launchable)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, startPos, retSpeed * Time.deltaTime);
