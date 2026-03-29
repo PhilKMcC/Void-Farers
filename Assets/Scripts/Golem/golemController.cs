@@ -50,7 +50,7 @@ public class golemController : abstrGolem
                     if (!spinning)
                     {
                         spinning = true;
-                        beamSpin.StartBeamAttack(5);
+                        beamSpin.StartBeamAttack(7.5f);
                     }
                 }
                 break;
