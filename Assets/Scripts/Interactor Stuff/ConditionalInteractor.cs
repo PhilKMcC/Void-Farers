@@ -162,8 +162,9 @@ public class ConditionalInteractor : Interactor
         Debug.Log(reader.ReadToEnd());
         reader.Close();
     }
-
+#if UNITY_EDITOR
     [MenuItem("myMenu/deleteConditionalData")]
+#endif
     public static void deleteConditionalData()
     {
         string path = Application.persistentDataPath + savefileLocationVars;

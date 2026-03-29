@@ -132,8 +132,9 @@ public abstract class Collectable : MonoBehaviour
             invertCollectable.CheckInvCollected();
         }
     }
-
+#if UNITY_EDITOR
     [MenuItem("myMenu/deleteCollectionData")]
+#endif
     public static void deleteCollection()
     {
         string path = Application.persistentDataPath + savefileLocationCollectables;

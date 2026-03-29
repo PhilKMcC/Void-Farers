@@ -127,8 +127,9 @@ public class SavePointScript : Abstr_Interactable
         reader.Close();
     }
 
-
+#if UNITY_EDITOR
     [MenuItem("myMenu/deletePositionData")]
+#endif
     public static void deletePositionData()
     {
         string path = Application.persistentDataPath + savefileLocationPosition;

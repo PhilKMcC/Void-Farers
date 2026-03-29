@@ -9,7 +9,8 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
     public static int CrystalsPlaced = 0;
     public static int MaxCrystals;
 
-    public static string savefileLocationVars = "/saveCrystals.csv";
+    public static string savefileLocationCrys = "/saveCrystals.csv";
+    public static List<int> placedIDs;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,6 +21,11 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
         if (myRenderer == null)
         {
             myRenderer = gameObject.GetComponent<SpriteRenderer>();
+        }
+        if (placedIDs == null)
+        {
+            placedIDs = new List<int>();
+            loadCrystals();
         }
         myRenderer.enabled = false;
         Debug.Log("disabled rederer");
@@ -43,23 +49,28 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
     {
         myRenderer.enabled = true;
         //check if all placed
-    }
-    /*
-    public static string displayVars()
-    {
-        string s = "";
-        foreach (string var in vars.Keys)
+        if (CrystalsPlaced < MaxCrystals - 1)
         {
-            s += "[" + var + "," + vars[var] + "] ";
+            CrystalsPlaced++;
+            saveCrystals();
+        }
+    }
+    
+    public static string displayCrystals()
+    {
+        string s = " ";
+        foreach (int id in placedIDs)
+        {
+            s += id + " , " ;
         }
         return s;
     }
 
-    public static void resetVars()
+    public static void resetCrystals()
     {
-        if (vars == null) { vars = new Dictionary<string, int>(); }
-        string path = Application.persistentDataPath + savefileLocationVars;
-        //Write some text to the test.txt file*/
+        if (placedIDs == null) { placedIDs = new List<int>(); }
+        string path = Application.persistentDataPath + savefileLocationCrys;
+        //Write some text to the test.txt file
         /*
         StreamWriter writer = new StreamWriter(path, false);
         //writer.WriteLine("Test");
@@ -71,19 +82,19 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
             writer.WriteLine(s + "," + (vars[s]));
         }
         writer.Close();
-        *//*
-        saveVars();
+        */
+        saveCrystals();
 
         //Print the text from the file for verification
         StreamReader reader = new StreamReader(path);
         Debug.Log(reader.ReadToEnd());
         reader.Close();
     }
-    public static void loadVars()
+    public static void loadCrystals()
     {
-        if (vars == null) { vars = new Dictionary<string, int>(); }
+        if (placedIDs == null) { placedIDs = new List<int>(); }
 
-        string path = Application.persistentDataPath + savefileLocationVars;
+        string path = Application.persistentDataPath + savefileLocationCrys;
 
         try
         {
@@ -91,34 +102,29 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
             string str = reader.ReadToEnd();
             reader.Close();
             //Debug.Log(str);
-            string[] tokens = str.Split("\n");
+            string[] tokens = str.Split(",");
             foreach (string token in tokens)
             {
-                if (token.Length > 0)
-                {
-                    string[] toks = token.Split(",");
-                    Debug.Log("token count: " + toks.Length + " var: " + toks[0] + ", value:" + toks[1] + "<-");
-                    vars[toks[0]] = int.Parse(toks[1]);
-                    Debug.Log("test collected: " + toks[0] + vars[toks[0]]);
-                }
+                placedIDs.Add(int.Parse(token));
+             
             }
 
         }
         catch (FileNotFoundException)
         {
-            resetVars();
+            resetCrystals();
         }
     }
-    public static void saveVars()
+    public static void saveCrystals()
     {
-        string path = Application.persistentDataPath + savefileLocationVars;
+        string path = Application.persistentDataPath + savefileLocationCrys;
         //Write some text to the test.txt file
         StreamWriter writer = new StreamWriter(path, false);
         //writer.WriteLine("Test");
-        foreach (string s in vars.Keys)
+        foreach (int id in placedIDs)
         {
             //write var and value
-            writer.WriteLine(s + "," + (vars[s]));
+            writer.Write(id + ",");
         }
         writer.Close();
 
@@ -127,16 +133,17 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
         Debug.Log(reader.ReadToEnd());
         reader.Close();
     }
-
-    [MenuItem("myMenu/deleteConditionalData")]
-    public static void deleteConditionalData()
+#if UNITY_EDITOR
+    [MenuItem("myMenu/deleteCrystalsData")]
+#endif
+    public static void deleteCrystalsData()
     {
-        string path = Application.persistentDataPath + savefileLocationVars;
+        string path = Application.persistentDataPath + savefileLocationCrys;
         File.Delete(path);
         /*StreamWriter writer = new StreamWriter(path, false);
         writer.WriteLine("");
-        writer.Close();*//*
+        writer.Close();*/
     }
 
-    */
+    
 }
