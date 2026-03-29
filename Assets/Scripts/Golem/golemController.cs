@@ -14,7 +14,7 @@ public class golemController : abstrGolem
     void Start()
     {
         //Debug.Log("Start state 1");
-        state = 1;
+        state = 0;
         wait = true;
         spinning = false;
     }

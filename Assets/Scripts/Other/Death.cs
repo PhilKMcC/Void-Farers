@@ -39,6 +39,7 @@ public class Death : MonoBehaviour
         }
 
         Collectable.Collectables = null;
+        PedastalCrystal.placedIDs = null;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         

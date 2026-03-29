@@ -62,6 +62,10 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
             CrystalsPlaced++;
             saveCrystals();
         }
+        else //last crystal
+        {
+            abstrGolem.state = 1;
+        }
     }
 
     public void SoftPlaceCrystal()
