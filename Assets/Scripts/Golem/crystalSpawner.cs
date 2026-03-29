@@ -5,6 +5,7 @@ using UnityEngine;
 public class crystalSpawner : abstrGolem
 {
     public GameObject projectilePrefab;
+    public GameObject projectilePrefabMirr;
     //public float state;
     public int spawnAmount = 25;
     private int counter;
@@ -35,6 +36,7 @@ public class crystalSpawner : abstrGolem
             for(counter = 0; counter < spawnAmount; counter++)
             {
                 StartCoroutine(Spawn(1/100));
+                StartCoroutine(SpawnMirr(1 / 100));
             }
             if (counter >= spawnAmount)
             {
@@ -48,6 +50,12 @@ public class crystalSpawner : abstrGolem
     {
         yield return new WaitForSeconds(timer);
         GameObject spawned = Instantiate(projectilePrefab, new Vector3(transform.position.x + UnityEngine.Random.Range(-5, 5), transform.position.y + UnityEngine.Random.Range(-5, 5), 0), Quaternion.identity);
+    }
+
+    private IEnumerator SpawnMirr(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        GameObject spawned = Instantiate(projectilePrefabMirr, new Vector3(transform.position.x + 42 + UnityEngine.Random.Range(-5, 5), transform.position.y + UnityEngine.Random.Range(-5, 5), 0), Quaternion.identity);
     }
 
 }
