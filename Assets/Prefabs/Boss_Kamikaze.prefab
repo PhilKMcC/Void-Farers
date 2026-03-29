@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamagedByTiles: 1
   Rocket: {fileID: 0}
-  Speed: 20
+  Speed: 15
   detectionVal: 50
   myBody: {fileID: 0}
   rotSpeed: 90

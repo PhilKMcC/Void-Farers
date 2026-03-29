@@ -7,6 +7,8 @@ public class golemController : abstrGolem
     public Beam beamSpin;
     private float timer = 1;
     private bool spinning;
+    private float mostRecent = 0;
+    private float secondMostRecent = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +31,16 @@ public class golemController : abstrGolem
                 if (timer <= 0)
                 {
                     state = Random.Range(1, 6);
+                    if(state == mostRecent || state == secondMostRecent)
+                    {
+                        state = Random.Range(1, 6);
+                    }
+                    if(state == mostRecent)
+                    {
+                        state = Random.Range(1, 6);
+                    }
+                    secondMostRecent = mostRecent;
+                    mostRecent = state;
                     timer = 1;
                 }
                 break;

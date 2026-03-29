@@ -45,14 +45,14 @@ public class kamikazeEnemy : Abstr_Damagable
                 myAnimator.SetBool("Attacking", true);
                 initialDetect = Rocket.transform.position;
             }
-            if (!boss)
-            {
+            //if (!boss)
+            //{
                 transform.position = Vector2.MoveTowards(this.transform.position, Rocket.transform.position, Speed * Time.deltaTime);
-            }
-            else
-            {
-                transform.position = Vector2.MoveTowards(this.transform.position, initialDetect, Speed * Time.deltaTime);
-            }
+            //}
+            //else
+            //{
+            //    transform.position = Vector2.MoveTowards(this.transform.position, initialDetect, Speed * Time.deltaTime);
+            //}
             float rotation = Vector2.SignedAngle(gameObject.transform.up, direction);
             Mathf.Clamp(rotation, -rotSpeed, rotSpeed);
             myBody.angularVelocity = rotation;
