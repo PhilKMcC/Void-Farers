@@ -27,12 +27,15 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
             placedIDs = new List<int>();
             loadCrystals();
         }
+        
+        myRenderer.enabled = false;
+
         if (placedIDs.Contains(ID))
         {
             SoftPlaceCrystal();
         }
-        myRenderer.enabled = false;
-        Debug.Log("disabled rederer");
+
+        //Debug.Log("disabled rederer");
     }
 
     
@@ -55,6 +58,7 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
         //check if all placed
         if (CrystalsPlaced < MaxCrystals - 1)
         {
+            placedIDs.Add(ID);
             CrystalsPlaced++;
             saveCrystals();
         }
@@ -115,7 +119,7 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
             string str = reader.ReadToEnd();
             reader.Close();
             //Debug.Log(str);
-            string[] tokens = str.Split(",");
+            string[] tokens = str.Split("\n");
             foreach (string token in tokens)
             {
                 placedIDs.Add(int.Parse(token));
@@ -137,7 +141,7 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
         foreach (int id in placedIDs)
         {
             //write var and value
-            writer.Write(id + ",");
+            writer.WriteLine(id);
         }
         writer.Close();
 
