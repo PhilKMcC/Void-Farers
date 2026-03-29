@@ -122,8 +122,11 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
             string[] tokens = str.Split("\n");
             foreach (string token in tokens)
             {
-                placedIDs.Add(int.Parse(token));
-             
+                if (token.Length > 0)
+                {
+                    Debug.Log("Crystals loading: token: " + token);
+                    placedIDs.Add(int.Parse(token));
+                }
             }
 
         }
