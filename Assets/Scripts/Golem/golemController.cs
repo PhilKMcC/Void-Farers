@@ -31,14 +31,15 @@ public class golemController : abstrGolem
                 if (timer <= 0)
                 {
                     state = Random.Range(1, 6);
-                    if(state == mostRecent || state == secondMostRecent)
+                    /*if(state == mostRecent || state == secondMostRecent)
                     {
                         state = Random.Range(1, 6);
                     }
                     if(state == mostRecent)
                     {
                         state = Random.Range(1, 6);
-                    }
+                    }*/
+                    state = 4;
                     secondMostRecent = mostRecent;
                     mostRecent = state;
                     timer = 1;

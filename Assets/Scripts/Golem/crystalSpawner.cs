@@ -36,9 +36,12 @@ public class crystalSpawner : abstrGolem
             {
                 StartCoroutine(Spawn(1/100));
             }
-            Debug.Log("State 7 crystals");
-            state = 7;
-            wait = true;
+            if (counter >= spawnAmount)
+            {
+                Debug.Log("State 7 crystals");
+                state = 7;
+                wait = true;
+            }
         }
     }
     private IEnumerator Spawn(float timer)
