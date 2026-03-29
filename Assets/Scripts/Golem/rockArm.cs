@@ -78,7 +78,7 @@ public class rockArm : abstrGolem
                 moveOut(relEndPos);
                 break;
             case 4:
-                Launch(tossEndPos);
+                moveOut(tossEndPos);
                 break;
             case 5:
                 moveOut(beamEndPos);

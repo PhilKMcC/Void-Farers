@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3789332828609484889}
   - component: {fileID: 3210631163522574295}
   - component: {fileID: 5895009901218315893}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: crystalProj
   m_TagString: Boss
   m_Icon: {fileID: 0}
