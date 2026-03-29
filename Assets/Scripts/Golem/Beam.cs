@@ -57,7 +57,7 @@ public class Beam : abstrGolem
         }
     }
 
-        void Rotate()
+    void Rotate()
     {
         foreach (GameObject beam in beams)
         {
