@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class golemProjBlocker : abstrGolem
@@ -9,7 +10,6 @@ public class golemProjBlocker : abstrGolem
     {
         if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
         if (myCollider == null) { myCollider = gameObject.GetComponent<Collider2D>(); }
-        myBody.simulated = false;
     }
 
     // Update is called once per frame
@@ -28,19 +28,5 @@ public class golemProjBlocker : abstrGolem
     void die()
     {
         myCollider.enabled = false;
-        myBody.simulated = false;
-    }
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        //check it is player or ship
-        if (collision.gameObject.CompareTag("Friendly"))
-        {
-            myBody.simulated = true;
-        }
-        else
-        {
-            myBody.simulated = false;
-        }
     }
 }

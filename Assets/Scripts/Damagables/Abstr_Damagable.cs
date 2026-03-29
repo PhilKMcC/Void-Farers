@@ -17,6 +17,7 @@ public abstract class Abstr_Damagable : MonoBehaviour, I_Damagable
     public static HashSet<string> enemiesTags;
     public static HashSet<string> neutralsTags;
     public bool DamagedByTiles;
+    public bool Projectile;
 
     protected string myTag = null;
 
@@ -57,6 +58,10 @@ public abstract class Abstr_Damagable : MonoBehaviour, I_Damagable
             Damage();
         }
         if (DamagedByTiles && collision.gameObject.layer == 9)
+        {
+            Damage();
+        }
+        if (Projectile && collision.gameObject.layer == 12)
         {
             Damage();
         }

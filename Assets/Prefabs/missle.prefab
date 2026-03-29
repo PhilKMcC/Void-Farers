@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamagedByTiles: 1
+  Projectile: 1
   speed: 30
   myBody: {fileID: 0}
 --- !u!50 &6490013489110947623
