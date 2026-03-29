@@ -30,18 +30,29 @@ public class Beam : abstrGolem
     // Update is called once per frame
     void Update()
     {
-        if (state == 5 && !wait)
+        switch(state)
         {
-            timer -= Time.deltaTime;
-            Rotate();
-            if (!damaging && timer <= startDamaging)
-            {
-                MakeDamaging();
-            }
-            if (timer <= 0)
-            {
+            case 5:
+                if(!wait)
+                {
+                    timer -= Time.deltaTime;
+                    Rotate();
+                    if (!damaging && timer <= startDamaging)
+                    {
+                        MakeDamaging();
+                    }
+                    if (timer <= 0)
+                    {
+                        EndBeams();
+                    }
+                }
+                break;
+            case 6:
                 EndBeams();
-            }
+                break;
+            default:
+                break;
+
         }
     }
 
@@ -64,7 +75,10 @@ public class Beam : abstrGolem
         damaging = false;
         wait = true;
         Debug.Log("State to 7");
-        state = 7;
+        if (state == 5)
+        {
+            state = 7;
+        }
     }
 
     void StartBeams()

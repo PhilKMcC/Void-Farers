@@ -43,7 +43,7 @@ public class kamikazeEnemy : Abstr_Damagable
                 detectionVal += 15;
                 undetected = false;
                 myAnimator.SetBool("Attacking", true);
-                initialDetect = Rocket.transform.position * 2;
+                initialDetect = Rocket.transform.position;
             }
             if (!boss)
             {

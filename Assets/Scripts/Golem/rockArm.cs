@@ -87,6 +87,7 @@ public class rockArm : abstrGolem
                 die();
                 break;
             case 7:
+                launchable = false;
                 Retract(Speed);
                 break;
             default:
@@ -113,8 +114,14 @@ public class rockArm : abstrGolem
 
    void die()
     {
-        myBody.bodyType = RigidbodyType2D.Dynamic;
-        myBody.gravityScale = 1;
+        if (transform.position.y > -222)
+        {
+            transform.position = Vector2.MoveTowards(this.transform.position, startPos, Speed*5*Time.deltaTime);
+        }
+        else {
+            myBody.bodyType = RigidbodyType2D.Dynamic;
+            myBody.gravityScale = 1;
+        }
         //Explosion Animation?
     }
 
@@ -140,8 +147,8 @@ public class rockArm : abstrGolem
         {
             //Debug.Log("Reached");
             launchable = false;
-            //Retract(Speed/2);
-            state = 7;
+            Retract(Speed/2);
+            //state = 7;
         }
       
     }
