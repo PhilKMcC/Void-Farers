@@ -145,6 +145,7 @@ public class rockArm : abstrGolem
     void Retract(float retSpeed)
     {
         distanceVectorThree = Vector2.Distance(transform.position, startPos);
+        Debug.Log(distanceVectorThree);
         if (!distanceVectorThree.Equals(0) && !launchable)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, startPos, retSpeed * Time.deltaTime);
@@ -153,9 +154,8 @@ public class rockArm : abstrGolem
         {
             moving = false;
             launchable = true;
+            state = 1;
         }
-        Debug.Log("Retracting State 1");
-        state = 1;
 
     }
 

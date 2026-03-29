@@ -6,20 +6,22 @@ public class golemController : abstrGolem
     private int frameCounter;
     public Beam beamSpin;
     private float timer = 1;
+    private bool spinning;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("Start state 1");
+        //Debug.Log("Start state 1");
         state = 1;
         wait = true;
+        spinning = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         //If awoken, set state to 1
-        Debug.Log(state);
+        //Debug.Log(state);
         switch(state)
         {
             case 1:
@@ -33,8 +35,15 @@ public class golemController : abstrGolem
             case 5:
                 if(!wait)
                 {
-                    beamSpin.StartBeamAttack(5);
+                    if (!spinning)
+                    {
+                        spinning = true;
+                        beamSpin.StartBeamAttack(5);
+                    }
                 }
+                break;
+            case 7:
+                spinning = false;
                 break;
             default:
                 break;
@@ -43,7 +52,6 @@ public class golemController : abstrGolem
 
     public static void SpawnGolem()
     {
-        Debug.Log("HOW THE F");
         state = 1;
     }
 }

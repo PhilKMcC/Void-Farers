@@ -19,7 +19,12 @@ public class Beam : abstrGolem
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        foreach (GameObject beam in beams)
+        {
+            beam.GetComponent<Collider2D>().enabled = false;
+            beam.SetActive(false);
+
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +63,7 @@ public class Beam : abstrGolem
         }
         damaging = false;
         wait = true;
+        //Debug.Log("State to 7");
         state = 7;
     }
 

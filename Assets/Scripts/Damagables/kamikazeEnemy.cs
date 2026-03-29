@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class kamikazeEnemy : Abstr_Damagable
@@ -13,6 +14,10 @@ public class kamikazeEnemy : Abstr_Damagable
     public float rotSpeed = 60f;
 
     public Animator myAnimator;
+
+    public bool boss = false;
+
+    private Vector3 initialDetect;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,10 +43,16 @@ public class kamikazeEnemy : Abstr_Damagable
                 detectionVal += 15;
                 undetected = false;
                 myAnimator.SetBool("Attacking", true);
+                initialDetect = Rocket.transform.position * 2;
             }
-
-            transform.position = Vector2.MoveTowards(this.transform.position, Rocket.transform.position, Speed * Time.deltaTime);
-
+            if (!boss)
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, Rocket.transform.position, Speed * Time.deltaTime);
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, initialDetect, Speed * Time.deltaTime);
+            }
             float rotation = Vector2.SignedAngle(gameObject.transform.up, direction);
             Mathf.Clamp(rotation, -rotSpeed, rotSpeed);
             myBody.angularVelocity = rotation;
