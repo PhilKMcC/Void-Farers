@@ -94,15 +94,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "SelfDestruct",
-                    "type": "Button",
-                    "id": "a82241f4-462e-43f6-a478-f04870477c49",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -501,17 +492,6 @@
                     "action": "MoonwalkEmote",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f25c37fb-1ac1-4b6a-803b-6b8baa6cd484",
-                    "path": "<Keyboard>/0",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "SelfDestruct",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -582,15 +562,6 @@
                     "name": "MoonwalkEmote",
                     "type": "Button",
                     "id": "22827d48-1586-4a5a-9995-56f83325a52d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SelfDestruct",
-                    "type": "Button",
-                    "id": "e0e620c4-b669-4a09-aa0a-2c4eca3a2289",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -756,17 +727,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "MoonwalkEmote",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8bdfae58-efbe-441e-ae5a-081bee6f2a54",
-                    "path": "<Keyboard>/0",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "SelfDestruct",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1371,6 +1331,54 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Global",
+            "id": "3627f915-536e-4541-88e2-6d29444b16d2",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "206c484d-1c4b-4b7c-9aca-99ec1402b839",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelfDestruct",
+                    "type": "Button",
+                    "id": "ded49e5b-7ae3-402b-9a75-4d1bcccc1fe1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2414b8c9-133c-4633-aff8-20ee7f7b4bb8",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9e27776-f65b-4df6-84e9-21533468991a",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SelfDestruct",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

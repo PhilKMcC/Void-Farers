@@ -69,7 +69,7 @@ public class PlayerScript : Abstr_Damagable
             StartCoroutine(Moonwalk());
         }
 
-        if (InputSystem.actions.FindAction("Player/SelfDestruct").WasPressedThisFrame())
+        if (InputSystem.actions.FindAction("Global/SelfDestruct").WasPressedThisFrame())
         {
             Damage();
         }
