@@ -8,6 +8,9 @@ public class rockHead : abstrGolem
 
     public Rigidbody2D myBody;
     public GameObject Rocket;
+    public SpriteRenderer mySprite;
+    public Sprite active;
+    public Sprite inactive;
 
     public float Speed = 5f;
     public float detectionVal = 12f;
@@ -30,8 +33,9 @@ public class rockHead : abstrGolem
     {
         if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
         if (Rocket == null) { Rocket = GameObject.FindGameObjectWithTag("Ship"); }
+        if (mySprite == null) { mySprite = gameObject.GetComponent<SpriteRenderer>(); }
         Debug.Log("Start Head");
-       
+        mySprite.sprite = inactive;
     }
 
     // Update is called once per frame
@@ -42,6 +46,7 @@ public class rockHead : abstrGolem
                 die();
                 break;
             default:
+                mySprite.sprite = active;
                 break;
         }
 
@@ -50,6 +55,7 @@ public class rockHead : abstrGolem
 
     void die()
     {
+        mySprite.sprite = inactive;
         myBody.bodyType = RigidbodyType2D.Dynamic;
         myBody.gravityScale = 1;
     }
