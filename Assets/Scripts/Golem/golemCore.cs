@@ -48,13 +48,13 @@ public class golemCore : abstrGolem
     {
         myCollider.enabled = true;
         mySprite.sprite = closed;
-        mySprite.sortingOrder = -3;
+        mySprite.sortingOrder = -1;
     }
     void setOpen()
     {
         myCollider.enabled = false;
         mySprite.sprite = open;
-        mySprite.sortingOrder = -1;
+        mySprite.sortingOrder = -3;
     }
     void die()
     {
