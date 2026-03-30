@@ -105,8 +105,9 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         {
             Shoot();
         }
-        if (InputSystem.actions.FindAction("Ship/SelfDestruct").WasPressedThisFrame())
+        if (InputSystem.actions.FindAction("Global/SelfDestruct").WasPressedThisFrame())
         {
+            Debug.Log("selfDestruct");
             Damage();
         }
     }
@@ -222,8 +223,5 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
 
     }
 
-    public void OnDestroy()
-    {
-        //respawn the rocket
-    }
+    
 }

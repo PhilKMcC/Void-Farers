@@ -33,7 +33,7 @@ public class Death : MonoBehaviour
 
         InputSystem.actions.FindActionMap("Dialogue").Enable();
 
-        while (!Dialouguer.nextAction.WasPressedThisFrame())
+        while (!Dialouguer.nextAction.WasPressedThisDynamicUpdate())
         {
             yield return null;
         }
@@ -43,7 +43,7 @@ public class Death : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-        
+        InputSystem.actions.FindActionMap("Global").Enable();
         
 
     }
