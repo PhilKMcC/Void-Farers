@@ -23,7 +23,7 @@ public abstract class Collectable : MonoBehaviour
 
     //used to access by ID
     public static Dictionary<int, Collectable> Collectables;
-    public static Dictionary<int, InvertCollectable> InvCollectables;
+    public static List<InvertCollectable> InvCollectables;
     //subclasses might want their own Dicts, for example so that the customizer can search up paints somehow
 
     //used for saving
@@ -75,7 +75,7 @@ public abstract class Collectable : MonoBehaviour
 
         if (InvCollectables == null)
         {
-            InvCollectables = new Dictionary<int, InvertCollectable>();
+            InvCollectables = new List<InvertCollectable>();
             InvertCollectable[] InvCollects = GameObject.FindObjectsByType<InvertCollectable>(FindObjectsSortMode.None);
             foreach (InvertCollectable Inv in InvCollects)
             {
@@ -112,11 +112,11 @@ public abstract class Collectable : MonoBehaviour
                 }
             }
             
-                InvCollectables = new Dictionary<int, InvertCollectable>();
+                InvCollectables = new List<InvertCollectable>();
                 InvertCollectable[] InvCollects = GameObject.FindObjectsByType<InvertCollectable>(FindObjectsSortMode.None);
                 foreach (InvertCollectable Inv in InvCollects)
                 {
-                    InvCollectables[Inv.ID] = Inv;
+                    InvCollectables.Add(Inv);
                 }
 
             
@@ -146,7 +146,7 @@ public abstract class Collectable : MonoBehaviour
         reader.Close();
 
         
-        foreach (InvertCollectable invertCollectable in InvCollectables.Values)
+        foreach (InvertCollectable invertCollectable in InvCollectables)
         {
             invertCollectable.CheckInvCollected();
         }
