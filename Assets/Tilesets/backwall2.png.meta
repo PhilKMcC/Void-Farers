@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e8719c2d6d2ec0247903c96a0394dc9a
+guid: b69345492c2d98346ba78e0c2c2b8ec8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5251734906795025119
-    second: snow_0
+      213: -410891490212249995
+    second: backwall2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: snow_0
+      name: backwall2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd26906a219e1e840800000000000000
-      internalID: 5251734906795025119
+      spriteID: 57efaacdd583c4af0800000000000000
+      internalID: -410891490212249995
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      snow_0: 5251734906795025119
+      backwall2_0: -410891490212249995
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
