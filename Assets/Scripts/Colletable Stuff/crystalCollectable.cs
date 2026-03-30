@@ -3,8 +3,6 @@ using UnityEngine;
 public class crystalCollectable : Collectable
 {
     //collectable index: crystals are 200-299 (probably only need 200-205, for 6 crystals)
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
