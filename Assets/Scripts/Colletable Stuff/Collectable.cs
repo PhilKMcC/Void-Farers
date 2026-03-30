@@ -23,6 +23,7 @@ public abstract class Collectable : MonoBehaviour
 
     //used to access by ID
     public static Dictionary<int, Collectable> Collectables;
+    public static Dictionary<int, InvertCollectable> InvCollectables;
     //subclasses might want their own Dicts, for example so that the customizer can search up paints somehow
 
     //used for saving
@@ -72,6 +73,17 @@ public abstract class Collectable : MonoBehaviour
         }
         writer.Close();
 
+        if (InvCollectables == null)
+        {
+            InvCollectables = new Dictionary<int, InvertCollectable>();
+            InvertCollectable[] InvCollects = GameObject.FindObjectsByType<InvertCollectable>(FindObjectsSortMode.None);
+            foreach (InvertCollectable Inv in InvCollects)
+            {
+                InvCollectables[Inv.ID] = Inv;
+            }
+
+        }
+
         //Print the text from the file for verification
         StreamReader reader = new StreamReader(path);
         Debug.Log(reader.ReadToEnd());
@@ -99,7 +111,15 @@ public abstract class Collectable : MonoBehaviour
                     Debug.Log("test collected: " + Collectables[int.Parse(toks[0])].collected);
                 }
             }
+            
+                InvCollectables = new Dictionary<int, InvertCollectable>();
+                InvertCollectable[] InvCollects = GameObject.FindObjectsByType<InvertCollectable>(FindObjectsSortMode.None);
+                foreach (InvertCollectable Inv in InvCollects)
+                {
+                    InvCollectables[Inv.ID] = Inv;
+                }
 
+            
         }
         catch (FileNotFoundException)
         {
@@ -125,9 +145,8 @@ public abstract class Collectable : MonoBehaviour
         Debug.Log(reader.ReadToEnd());
         reader.Close();
 
-
-        InvertCollectable[] allInvCollected = GameObject.FindObjectsByType<InvertCollectable>(FindObjectsSortMode.None);
-        foreach (InvertCollectable invertCollectable in allInvCollected)
+        
+        foreach (InvertCollectable invertCollectable in InvCollectables.Values)
         {
             invertCollectable.CheckInvCollected();
         }
