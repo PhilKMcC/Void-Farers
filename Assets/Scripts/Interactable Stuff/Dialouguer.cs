@@ -28,8 +28,8 @@ public class Dialouguer : Abstr_Interactable, I_Initializable
     public static TextMeshProUGUI LeftText;
     public static TextMeshProUGUI RightText;
     public static bool DialogueInUse = false;
-    public static Color dialoguerInactiveColor = Color.darkGray;
-    public static Color dialoguerActiveColor = Color.white;
+    public  Color dialoguerInactiveColor = Color.darkGray;
+    public  Color dialoguerActiveColor = Color.white;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
