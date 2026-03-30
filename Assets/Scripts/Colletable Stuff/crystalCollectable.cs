@@ -4,6 +4,8 @@ public class crystalCollectable : Collectable
 {
     //collectable index: crystals are 200-299 (probably only need 200-205, for 6 crystals)
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public Dialouguer crystalDialogue;
     protected override void Start()
     {
         base.Start();
@@ -25,6 +27,7 @@ public class crystalCollectable : Collectable
     {
         collected = true;
         saveCollection();
+        crystalDialogue.Interact();
         gameObject.SetActive(false);
         //Animate something here?
         
