@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Collections;
+using System.Threading;
 
 public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
 {
@@ -41,6 +42,8 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
     public float sideOffset = 1;
 
     public GameObject deathScreen; //pass this over to death
+
+    private float deathtimer = 3;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -108,6 +111,16 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         if (InputSystem.actions.FindAction("Ship/SelfDestruct").WasPressedThisFrame())
         {
             Damage();
+        }
+        if(isLanding)
+        {
+            deathtimer -= Time.deltaTime;
+            if(deathtimer <= 0)
+            {
+                Damage();
+                isLanding = false;
+                deathtimer = 3;
+            }
         }
     }
 
@@ -187,6 +200,7 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         CameraControl.changeTarget(player, player.GetComponent<PlayerScript>().cameraOffset);
         CameraControl.resetScale();
         isLanding = false;
+        deathtimer = 3;
         yield return null;
     }
 
@@ -226,4 +240,5 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
     {
         //respawn the rocket
     }
+
 }

@@ -42,6 +42,9 @@ public class rockHead : abstrGolem
     void Update()
     {
         switch (state) {
+            case 0:
+                mySprite.sprite = inactive;
+                break;
             case 6:
                 die();
                 break;

@@ -77,7 +77,7 @@ public class Beam : abstrGolem
         }
         damaging = false;
         wait = true;
-        Debug.Log("State to 7");
+        //Debug.Log("State to 7");
         if (state == 5)
         {
             state = 7;

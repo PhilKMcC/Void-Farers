@@ -1,6 +1,7 @@
 using NUnit.Framework.Internal;
 using System.Threading;
 using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 
 public class golemCrystal : Abstr_Damagable
@@ -8,6 +9,7 @@ public class golemCrystal : Abstr_Damagable
 
     public SpriteRenderer mySprite;
     public golemController control;
+    public GameObject crystal;
     /* 
      * Class Explanation:
      * the crystal in the body of the golem
@@ -24,6 +26,7 @@ public class golemCrystal : Abstr_Damagable
         if (mySprite == null) { mySprite = gameObject.GetComponent<SpriteRenderer>(); }
         health = 3f;
         myTag = gameObject.tag;
+        gameObject.SetActive(true);
         //initializeSets();
     }
 
@@ -60,10 +63,12 @@ public class golemCrystal : Abstr_Damagable
         //Death animation
         //Set state to 6
         golemController.state = 6;
-        Destroy(gameObject);
+        crystal.SetActive(true);
+        Debug.Log("Boss Dead");
+        gameObject.SetActive(false);
         //Spawn Crystal Collectable
         //Upon that crystal's collection, teleport to demo zone
-        Debug.Log("Boss dead!");
+
     }
 
     //Activate upon player death
@@ -71,5 +76,5 @@ public class golemCrystal : Abstr_Damagable
     {
         health = healthTotal;
     }
-    
+
 }

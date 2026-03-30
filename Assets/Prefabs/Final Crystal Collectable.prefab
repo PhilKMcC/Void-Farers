@@ -43,7 +43,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343124508407106923}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -167,6 +167,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   collected: 0
-  player: {fileID: 0}
   ship: {fileID: 0}
-  control: {fileID: 0}
