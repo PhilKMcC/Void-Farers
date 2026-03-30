@@ -13,6 +13,7 @@ public class InvertCollectable : MonoBehaviour
 
     public int ID;
     public SpriteRenderer myRenderer;
+
     
 
 
@@ -47,7 +48,7 @@ public class InvertCollectable : MonoBehaviour
         
     }
 
-    public void CheckInvCollected()
+    public virtual void CheckInvCollected()
     {
         if (Collectable.Collectables.ContainsKey(ID))
         {

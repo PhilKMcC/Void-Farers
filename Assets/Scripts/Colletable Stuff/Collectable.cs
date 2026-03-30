@@ -79,7 +79,7 @@ public abstract class Collectable : MonoBehaviour
             InvertCollectable[] InvCollects = GameObject.FindObjectsByType<InvertCollectable>(FindObjectsSortMode.None);
             foreach (InvertCollectable Inv in InvCollects)
             {
-                InvCollectables[Inv.ID] = Inv;
+                InvCollectables.Add(Inv);
             }
 
         }
@@ -117,6 +117,7 @@ public abstract class Collectable : MonoBehaviour
                 foreach (InvertCollectable Inv in InvCollects)
                 {
                     InvCollectables.Add(Inv);
+                    Inv.CheckInvCollected();
                 }
 
             

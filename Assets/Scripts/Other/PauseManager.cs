@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,9 +8,20 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseCanvas;
     private float holdTimeScale;
     private bool isPaused = false;
+    public static List<InvertCollectable> InvCollectables;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        InvCollectables = new List<InvertCollectable>();
+        ImageInvCollectable[] cols = GameObject.FindObjectsByType<ImageInvCollectable>(FindObjectsSortMode.None);
+
+        foreach (ImageInvCollectable col in cols)
+        {
+            InvCollectables.Add(col);
+            col.CheckInvCollected();
+        }
+
         pauseCanvas.SetActive(false);
     }
 
@@ -32,10 +44,16 @@ public class PauseManager : MonoBehaviour
 
     public void Pause()
     {
+
         holdTimeScale = Time.timeScale;
         Time.timeScale = 0;
         isPaused = true;
         pauseCanvas.SetActive(true);
+        foreach (ImageInvCollectable col in InvCollectables)
+        {
+            col.CheckInvCollected();
+        }
+
     }
     public void Resume()
     {
