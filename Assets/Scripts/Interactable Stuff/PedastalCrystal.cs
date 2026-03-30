@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -16,7 +17,7 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
-        MaxCrystals = 2;
+        MaxCrystals = 6;
         base.Start();
         if (myRenderer == null)
         {
@@ -64,9 +65,15 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
         }
         else //last crystal
         {
-            abstrGolem.state = 1;
+            StartCoroutine(waitAMomentThenBoss());
             CameraControl.spawnBoss(50);
         }
+    }
+
+    public IEnumerator waitAMomentThenBoss()
+    {
+        yield return new WaitForSeconds(10);
+        golemController.state = 1;
     }
 
     public void SoftPlaceCrystal()
