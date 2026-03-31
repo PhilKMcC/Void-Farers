@@ -14,10 +14,14 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
     public static List<int> placedIDs;
     public bool IAmPlaced;
 
+    public AudioSource placeSound;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
+        if (placeSound == null) { placeSound = gameObject.GetComponent<AudioSource>(); }
+
         MaxCrystals = 6;
         base.Start();
         if (myRenderer == null)
@@ -58,6 +62,7 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
     {
         if ( !IAmPlaced)
         {
+            placeSound.Play();
             IAmPlaced = true;
             myRenderer.enabled = true;
             //check if all placed
