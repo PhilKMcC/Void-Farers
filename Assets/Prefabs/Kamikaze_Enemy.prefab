@@ -287,12 +287,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamagedByTiles: 1
+  Projectile: 0
   Rocket: {fileID: 0}
   Speed: 10
   detectionVal: 20
   myBody: {fileID: 0}
   rotSpeed: 60
   myAnimator: {fileID: 0}
+  boss: 0
+  explosion: {fileID: 6468971608337040429, guid: 4c163497530a05949bf3dc819f36c6f1, type: 3}
 --- !u!95 &-938296496593936250
 Animator:
   serializedVersion: 7

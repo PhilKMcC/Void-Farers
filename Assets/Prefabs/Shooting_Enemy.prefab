@@ -319,3 +319,4 @@ MonoBehaviour:
   enemmisslePrefab: {fileID: 4058955512683625892, guid: c212a6a5abd5f274c852aa6d8f51732f, type: 3}
   upOffset: -2
   sideOffset: 0
+  explosion: {fileID: 6468971608337040429, guid: 4c163497530a05949bf3dc819f36c6f1, type: 3}

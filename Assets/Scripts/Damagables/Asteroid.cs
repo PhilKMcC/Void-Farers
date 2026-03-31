@@ -8,7 +8,7 @@ public class Asteroid : Abstr_Damagable
      * need at least one in the scene for the collisions to work properly, since we need something to initialize them
      */
 
-    
+    public GameObject explosion;
 
     void Start()
     {
@@ -17,6 +17,8 @@ public class Asteroid : Abstr_Damagable
     }
     public override void Damage()
     {
+        Instantiate(explosion, transform.position, Quaternion.identity);
+
         gameObject.SetActive(false);
         Debug.Log("kaboom!");
     }

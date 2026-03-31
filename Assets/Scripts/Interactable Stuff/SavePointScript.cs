@@ -26,7 +26,9 @@ public class SavePointScript : Abstr_Interactable
 
     public static bool loaded = false;
 
-    public static readonly Vector3 IgnoreMe = new Vector3(99999, 99999, 99999); 
+    public static readonly Vector3 IgnoreMe = new Vector3(99999, 99999, 99999);
+
+    public AudioSource savesound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -145,6 +147,7 @@ public class SavePointScript : Abstr_Interactable
         if (spawnLocation != IgnoreMe){
             respawnLocation = spawnLocation;
         }
+        savesound.Play();
         saveSavedata();
         SummonRocket();
     }

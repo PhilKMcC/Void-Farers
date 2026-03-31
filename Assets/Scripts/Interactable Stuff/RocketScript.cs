@@ -45,6 +45,11 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
 
     private float deathtimer = 3;
 
+
+    public AudioSource shootsfx;
+
+    public GameObject explosion;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -62,6 +67,11 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         TilesFilter.SetLayerMask(0b001000000000);
 
         myAnimator.SetTrigger("Reset");
+
+        if (shootsfx == null)
+        {
+            shootsfx = gameObject.GetComponent<AudioSource>();
+        }
 
     }
 
@@ -130,6 +140,7 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         Vector3 LOffset = transform.up * upOffset + transform.right * sideOffset * -1;
         Instantiate(misslePrefab, transform.position + ROffset, transform.rotation);
         Instantiate(misslePrefab, transform.position + LOffset, transform.rotation);
+        shootsfx.Play();
     }
 
 
@@ -230,6 +241,7 @@ public class RocketScript : Abstr_Damagable, I_Interactable, I_Initializable
         //player.transform.position = gameObject.transform.position;
         //CameraControl.changeTarget(player, player.GetComponent<PlayerScript>().cameraOffset);
         //CameraControl.resetScale();
+        Instantiate(explosion, transform.position, Quaternion.identity);
 
         Death.Die();
 

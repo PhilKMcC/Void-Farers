@@ -19,6 +19,8 @@ public class shootingEnemy : Abstr_Damagable
     public float sideOffset = 0;
     private float frameCounter = 0;
 
+    public GameObject explosion;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -80,6 +82,8 @@ public class shootingEnemy : Abstr_Damagable
     }
     public override void Damage()
     {
+        Instantiate(explosion, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
         Debug.Log("kaplow!");
 

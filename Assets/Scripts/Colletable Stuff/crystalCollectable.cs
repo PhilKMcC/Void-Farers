@@ -6,6 +6,7 @@ public class crystalCollectable : Collectable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public Dialouguer crystalDialogue;
+    private AudioSource crystalAudio;
     protected override void Start()
     {
         base.Start();
@@ -28,6 +29,7 @@ public class crystalCollectable : Collectable
         collected = true;
         saveCollection();
         crystalDialogue.Interact();
+        if (crystalAudio == null) { crystalDialogue.gameObject.GetComponent<AudioSource>().Play(); }
         gameObject.SetActive(false);
         //Animate something here?
         
