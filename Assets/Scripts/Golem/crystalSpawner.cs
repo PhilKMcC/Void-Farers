@@ -9,10 +9,12 @@ public class crystalSpawner : abstrGolem
     //public float state;
     public int spawnAmount = 25;
     private int counter;
+
+    public AudioSource ding;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        if (ding == null) { ding = gameObject.GetComponent<AudioSource>(); }
     }
 
     // Update is called once per frame
@@ -49,6 +51,7 @@ public class crystalSpawner : abstrGolem
     private IEnumerator Spawn(float timer)
     {
         yield return new WaitForSeconds(timer);
+        ding.Play();
         GameObject spawned = Instantiate(projectilePrefab, new Vector3(transform.position.x + UnityEngine.Random.Range(-5, 5), transform.position.y + UnityEngine.Random.Range(-5, 5), 0), Quaternion.identity);
     }
 
