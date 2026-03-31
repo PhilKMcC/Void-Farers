@@ -8,6 +8,8 @@ public class kamikazeSpawn : abstrGolem
 {
     public GameObject kamikazePrefab;
 
+    public AudioSource summonSound;
+
     private float timer;
     private bool spawned;
 
@@ -16,6 +18,7 @@ public class kamikazeSpawn : abstrGolem
     {
         timer = 1;
         spawned = false;
+        if (summonSound == null) { summonSound = gameObject.GetComponent<AudioSource>(); }
     }
 
     // Update is called once per frame
@@ -41,6 +44,7 @@ public class kamikazeSpawn : abstrGolem
             Debug.Log(wait);
             if (!spawned)
             {
+                summonSound.Play();
                 StartCoroutine(Spawn(1 / 100, 7.5f, 0));
                 StartCoroutine(Spawn(1 / 100, -7.5f, 0));
                 StartCoroutine(Spawn(1 / 100, 0, 7.5f));
