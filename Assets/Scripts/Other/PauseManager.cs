@@ -10,6 +10,7 @@ public class PauseManager : MonoBehaviour
     private float holdTimeScale;
     private bool isPaused = false;
     public static List<InvertCollectable> InvCollectables;
+    public AudioSource pauseAudioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,7 +44,7 @@ public class PauseManager : MonoBehaviour
 
     public void Pause()
     {
-
+        pauseAudioSource.Play();
         holdTimeScale = Time.timeScale;
         Time.timeScale = 0;
         isPaused = true;
