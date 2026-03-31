@@ -11,6 +11,9 @@ public class golemController : abstrGolem
     private float secondMostRecent = 0;
 
     public AudioSource deathSound;
+    public AudioSource spawnSound;
+
+    private bool notSpawned;
     private bool notPlayed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +24,7 @@ public class golemController : abstrGolem
         wait = true;
         spinning = false;
         notPlayed = true;
+        notSpawned = true;
     }
 
     // Update is called once per frame
@@ -31,6 +35,11 @@ public class golemController : abstrGolem
         switch(state)
         {
             case 1:
+                if(notSpawned)
+                {
+                    spawnSound.Play();
+                    notSpawned = false;
+                }
                 timer -= Time.deltaTime;
                 if (timer <= 0)
                 {
