@@ -21,7 +21,6 @@ public class PauseManager : MonoBehaviour
         {
             InvCollectables.Add(col);
         }
-
         pauseCanvas.SetActive(false);
     }
 
@@ -64,12 +63,16 @@ public class PauseManager : MonoBehaviour
 
     public void ToMainMenu()
     {
+        SavePointScript.loaded = false;
+        Time.timeScale = holdTimeScale;
+        Debug.Log("toMain");
         SceneManager.LoadScene("MainMenu");
 
     }
 
     public void Quit()
     {
+        Debug.Log("Quit");
         Application.Quit();
     }
 

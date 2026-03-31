@@ -18,6 +18,7 @@ public class volumeSlider : MonoBehaviour
             PlayerPrefs.SetFloat("Volume", 1);
             volumeSlide.value = PlayerPrefs.GetFloat("Volume");
         }
+
     }
 
     // Update is called once per frame

@@ -21,6 +21,19 @@ public class BGMmanager : MonoBehaviour
             sources = gameObject.GetComponents<AudioSource>();
         }
         timer = -1;
+
+        float vol;
+        if (PlayerPrefs.HasKey("Volume"))
+        {
+            vol = PlayerPrefs.GetFloat("Volume");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("Volume", 1);
+            vol = PlayerPrefs.GetFloat("Volume");
+        }
+        AudioListener.volume = vol;
+        PlayerPrefs.SetFloat("Volume", vol);
     }
 
 

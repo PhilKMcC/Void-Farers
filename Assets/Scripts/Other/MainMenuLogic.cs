@@ -8,6 +8,7 @@ public class MainMenuLogic : MonoBehaviour
 
     public void BeginGame()
     {
+        Collectable.Collectables = null;
         SceneManager.LoadScene("Main Scene");
     }
 
