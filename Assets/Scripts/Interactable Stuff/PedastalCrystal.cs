@@ -12,6 +12,7 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
 
     public static string savefileLocationCrys = "/saveCrystals.csv";
     public static List<int> placedIDs;
+    public bool IAmPlaced;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,19 +56,24 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
 
     public void PlaceCrystal()
     {
-        myRenderer.enabled = true;
-        //check if all placed
-        if (CrystalsPlaced < MaxCrystals - 1)
+        if ( !IAmPlaced)
         {
-            placedIDs.Add(ID);
-            CrystalsPlaced++;
-            saveCrystals();
+            IAmPlaced = true;
+            myRenderer.enabled = true;
+            //check if all placed
+            if (CrystalsPlaced < MaxCrystals - 1)
+            {
+                placedIDs.Add(ID);
+                CrystalsPlaced++;
+                saveCrystals();
+            }
+            else //last crystal
+            {
+                StartCoroutine(waitAMomentThenBoss());
+                CameraControl.spawnBoss(50);
+            }
         }
-        else //last crystal
-        {
-            StartCoroutine(waitAMomentThenBoss());
-            CameraControl.spawnBoss(50);
-        }
+       
     }
 
     public IEnumerator waitAMomentThenBoss()
@@ -82,6 +88,7 @@ public class PedastalCrystal : InvertCollectable, I_Interactable
         if (CrystalsPlaced < MaxCrystals - 1)
         {
             CrystalsPlaced++;
+            IAmPlaced = true;
         }
     }
     

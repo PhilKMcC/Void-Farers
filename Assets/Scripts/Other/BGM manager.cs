@@ -1,12 +1,13 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class BGMmanager : MonoBehaviour
 {
 
     //swaps to next track after a while
 
-    public AudioSource[] sources; //all play on start, we swap out the loudness
-
+    public AudioSource player; //all play on start, we swap out the loudness
+    public AudioClip[] sources;
     public static int current = 0;
 
     public float MaxVolume = 0.75f;
@@ -16,10 +17,7 @@ public class BGMmanager : MonoBehaviour
 
     private void Start()
     {
-        if (sources.Length == 0)
-        {
-            sources = gameObject.GetComponents<AudioSource>();
-        }
+        
         timer = -1;
 
         float vol;
@@ -44,17 +42,16 @@ public class BGMmanager : MonoBehaviour
         if (timer < 0)
         {
             timer = timeBetween;
-            sources[current].volume = 0;
             current = (current+1) % sources.Length;
-            sources[current].volume = MaxVolume;
-
+            player.clip = sources[current];
+            player.Play();
         }
     }
 
     public void updateVolume(float MaxVol)
     {
         MaxVolume = MaxVol;
-        sources[current].volume = MaxVolume;
+        player.volume = MaxVolume;
 
     }
 }
