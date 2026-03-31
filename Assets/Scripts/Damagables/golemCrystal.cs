@@ -20,10 +20,13 @@ public class golemCrystal : Abstr_Damagable
     private bool damagable;
     private float timer = 3;
 
+    public AudioSource hurtSound; 
+
 
     void Start()
     {
         if (mySprite == null) { mySprite = gameObject.GetComponent<SpriteRenderer>(); }
+        if (hurtSound == null) { hurtSound = gameObject.GetComponent<AudioSource>(); }
         health = 3f;
         myTag = gameObject.tag;
         gameObject.SetActive(true);
@@ -50,6 +53,7 @@ public class golemCrystal : Abstr_Damagable
         {
             health--;
             mySprite.color = Color.red;
+            hurtSound.Play();
             if (health == 0)
             {
                 Die();

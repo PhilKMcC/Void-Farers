@@ -10,6 +10,9 @@ public class golemController : abstrGolem
     private float mostRecent = 0;
     private float secondMostRecent = 0;
 
+    public AudioSource deathSound;
+    private bool notPlayed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +20,7 @@ public class golemController : abstrGolem
         state = 0;
         wait = true;
         spinning = false;
+        notPlayed = true;
     }
 
     // Update is called once per frame
@@ -52,6 +56,13 @@ public class golemController : abstrGolem
                         spinning = true;
                         beamSpin.StartBeamAttack(7.5f);
                     }
+                }
+                break;
+            case 6:
+                if (notPlayed)
+                {
+                    deathSound.Play();
+                    notPlayed = false;
                 }
                 break;
             case 7:

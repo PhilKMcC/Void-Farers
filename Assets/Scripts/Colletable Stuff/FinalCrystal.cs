@@ -9,12 +9,14 @@ public class FinalCrystal : Collectable
    // public GameObject player;
     public GameObject ship;
     public golemController control;
+    public AudioSource collectSound;
     //private bool uninit;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
         base.Start();
         if (ship == null) { ship = GameObject.FindGameObjectWithTag("Ship"); }
+        if (collectSound == null) { collectSound = gameObject.GetComponent<AudioSource>(); }
         //uninit = true;
         gameObject.SetActive(false);
         //if (player == null) { player = GameObject.FindGameObjectWithTag("Player"); }
@@ -33,6 +35,7 @@ public class FinalCrystal : Collectable
 
     public override void Collect()
     {
+        collectSound.Play();
         collected = true;
         saveCollection();
         gameObject.SetActive(false);

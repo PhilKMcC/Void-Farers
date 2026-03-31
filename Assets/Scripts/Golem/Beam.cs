@@ -21,6 +21,7 @@ public class Beam : abstrGolem
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (beamAudio == null) { beamAudio = gameObject.GetComponent<AudioSource>(); }
         foreach (GameObject beam in beams)
         {
             beam.GetComponent<Collider2D>().enabled = false;
