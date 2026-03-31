@@ -21,6 +21,8 @@ public class shootingEnemy : Abstr_Damagable
 
     public GameObject explosion;
 
+    public AudioSource shootSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -59,25 +61,27 @@ public class shootingEnemy : Abstr_Damagable
             myAnimator.SetBool("Attacking",false);
 
         }
-        if(frameCounter < 60)
+        if(frameCounter < .2)
         {
-            frameCounter++;
+            frameCounter += Time.deltaTime;
         }
-        else
-        {
-            frameCounter = 0;
-        }
+        
 
 
     }
 
     public void Shoot()
     {
-        if (frameCounter == 1)
+        if (frameCounter >= .2)
         {
+            frameCounter = 0;
+
             Debug.Log("Shot");
             Vector3 Offset = transform.up * upOffset + transform.right * sideOffset;
             Instantiate(enemmisslePrefab, transform.position + Offset, transform.rotation);
+            shootSound.Play();
+
+            
         }
     }
     public override void Damage()
