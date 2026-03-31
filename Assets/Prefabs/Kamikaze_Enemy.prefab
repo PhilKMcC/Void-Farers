@@ -290,7 +290,7 @@ MonoBehaviour:
   Projectile: 0
   Rocket: {fileID: 0}
   Speed: 10
-  detectionVal: 20
+  detectionVal: 30
   myBody: {fileID: 0}
   rotSpeed: 60
   myAnimator: {fileID: 0}
