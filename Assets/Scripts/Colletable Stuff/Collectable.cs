@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using UnityEditor;
-using UnityEditor.Overlays;
+//using UnityEditor.Overlays;
 using UnityEngine;
 
 public abstract class Collectable : MonoBehaviour

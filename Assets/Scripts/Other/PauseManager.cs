@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class PauseManager : MonoBehaviour
         foreach (ImageInvCollectable col in cols)
         {
             InvCollectables.Add(col);
-            col.CheckInvCollected();
         }
 
         pauseCanvas.SetActive(false);
@@ -64,12 +64,13 @@ public class PauseManager : MonoBehaviour
 
     public void ToMainMenu()
     {
+        SceneManager.LoadScene("MainMenu");
 
     }
 
     public void Quit()
     {
-
+        Application.Quit();
     }
 
     public void SelfDestruct()
