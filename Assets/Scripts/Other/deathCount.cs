@@ -11,12 +11,15 @@ public class deathCount : MonoBehaviour
     void Start()
     {
         if (text == null) { text = gameObject.GetComponent<TextMeshProUGUI>(); }
-        text.text = "Death Count: " + ConditionalInteractor.vars["deathCount"];
+        if (ConditionalInteractor.vars.ContainsKey("deathCount"))
+        {
+            text.text = "Death Count: " + ConditionalInteractor.vars["deathCount"];
+        }
+        else
+        {
+            text.text = "Death Count: " + 0;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 }
