@@ -30,7 +30,7 @@ public class Death : MonoBehaviour
         sps.saveSavedata();
         SavePointScript.loaded = false;
 
-
+        Dialouguer.DialogueInUse = false;
         InputSystem.actions.FindActionMap("Dialogue").Enable();
 
         while (!Dialouguer.nextAction.WasPressedThisDynamicUpdate())

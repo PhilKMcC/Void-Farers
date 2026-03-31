@@ -218,16 +218,18 @@ MonoBehaviour:
   - R,0
   - L,0
   - L,0
+  - R,1
+  - R,1
   - R,0
   - R,0
-  - R,0
-  - R,0
-  - R,0
+  - R,1
   - L,0
   - R,0
   - L,0
-  - R,0
+  - R,1
   - L,0
+  dialoguerInactiveColor: {r: 0.6627451, g: 0.6627451, b: 0.6627451, a: 1}
+  dialoguerActiveColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &3082087023701564087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,3 +382,5 @@ MonoBehaviour:
   textMetadata:
   - L,0
   - R,0
+  dialoguerInactiveColor: {r: 0.6627451, g: 0.6627451, b: 0.6627451, a: 1}
+  dialoguerActiveColor: {r: 1, g: 1, b: 1, a: 1}
