@@ -22,6 +22,8 @@ public class elevatorCaller : Abstr_Interactable
     public Color defaultColor;
     public Color calledColor;
 
+    public AudioSource elevatormoving;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,6 +41,7 @@ public class elevatorCaller : Abstr_Interactable
         {
             calledColor = Color.yellow;
         }
+        elevatormoving.enabled = false;
     }
 
     // Update is called once per frame
@@ -63,7 +66,8 @@ public class elevatorCaller : Abstr_Interactable
 
     protected virtual IEnumerator CallElevator()
     {
-        
+        elevatormoving.enabled = true;
+        elevatormoving.Play();
         timer = 0;
         Vector3 start = Elevator.transform.position;
         Vector3 startOffset = locationA - start;
@@ -76,17 +80,27 @@ public class elevatorCaller : Abstr_Interactable
                 yield return null;
             }
             Elevator.transform.position = locationA;
+            elevatormoving.Stop();
+            elevatormoving.enabled = false;
 
             yield return new WaitForSeconds(callDuration);
         }
         myRenderer.color = defaultColor;
         timer = callDuration * 2;
-        while(timer < callDuration * 3)
+
+        elevatormoving.enabled = true;
+        elevatormoving.Play();
+
+
+        while (timer < callDuration * 3)
         {
             Vector3 pos = locationA - offset * ((timer - callDuration * 2) / callDuration);
             Elevator.transform.position = pos;
             yield return null;
         }
+        elevatormoving.Stop();
+        elevatormoving.enabled = false;
+
         Elevator.transform.position = locationB;
 
         midAction = false;
