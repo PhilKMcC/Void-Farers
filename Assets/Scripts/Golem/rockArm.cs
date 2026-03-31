@@ -26,6 +26,10 @@ public class rockArm : abstrGolem
     private Vector3 tossEndPos;
     private Vector3 beamEndPos;
 
+    public AudioSource punchSound;
+
+    private bool firstLaunch;
+
     //Need to be accessed by body script
     //public float state;
     //0 = Asleep
@@ -41,11 +45,13 @@ public class rockArm : abstrGolem
     void Start()
     {
         if (myBody == null) { myBody = gameObject.GetComponent<Rigidbody2D>(); }
+        if (punchSound == null) { punchSound = gameObject.GetComponent<AudioSource>(); }
         if (Rocket == null) { Rocket = GameObject.FindGameObjectWithTag("Ship"); }
         startPos = gameObject.transform.position;
         Debug.Log("Start Arm");
         moving = false;
         launchable = true;
+        firstLaunch = true;
         initializeEndPositions();
        
     }
@@ -87,6 +93,7 @@ public class rockArm : abstrGolem
                 die();
                 break;
             case 7:
+                firstLaunch = true;
                 launchable = false;
                 Retract(Speed);
                 break;
@@ -128,7 +135,11 @@ public class rockArm : abstrGolem
 
     void Launch(Vector3 dest)
     {
-
+        if(firstLaunch)
+        {
+            punchSound.Play();
+            firstLaunch = false;
+        }
         //Debug.Log("Launchable: " + launchable);
         if(launchable) {
             distanceVectorTwo = Vector2.Distance(transform.position, dest);

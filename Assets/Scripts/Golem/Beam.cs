@@ -16,6 +16,8 @@ public class Beam : abstrGolem
     public float timer;
     public float startDamaging;
 
+    public AudioSource beamAudio;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -77,6 +79,7 @@ public class Beam : abstrGolem
         }
         damaging = false;
         wait = true;
+        beamAudio.Stop();
         //Debug.Log("State to 7");
         if (state == 5)
         {
@@ -100,6 +103,7 @@ public class Beam : abstrGolem
             beam.GetComponent<SpriteRenderer>().sprite = damagingSprite;
 
         }
+        beamAudio.Play();
         damaging = true;
 
     }
