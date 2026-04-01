@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class resetButton : Abstr_Interactable
@@ -46,7 +47,30 @@ public class resetButton : Abstr_Interactable
             ConditionalInteractor.deleteConditionalData();
             PedastalCrystal.deleteCrystalsData();
             SavePointScript.deletePositionData();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+
+
+
+        SavePointScript.respawnLocation = Vector3.zero;
+        SavePointScript.loaded = false;
+        SavePointScript sps = SavePointScript.FindFirstObjectByType<SavePointScript>();
+        sps.saveSavedata();
+
+
+        Collectable.Collectables = null;
+        Collectable.InvCollectables = null;
+        PedastalCrystal.placedIDs = null;
+        ConditionalInteractor.vars.Clear();
+        ConditionalInteractor.vars["deathCount"] = 0;
+        ConditionalInteractor.saveVars();
+        ConditionalInteractor.vars = null;
+
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        InputSystem.actions.FindActionMap("Global").Enable();
+        Debug.Log("RESET DONE");
+
     }
 
 }
